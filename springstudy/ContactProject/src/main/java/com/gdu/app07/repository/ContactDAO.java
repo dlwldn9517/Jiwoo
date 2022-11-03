@@ -44,7 +44,7 @@ public class ContactDAO {
 		}
 	}
 	
-	public List<ContactDTO> selectAllBoards() {
+	public List<ContactDTO> selectAllContacts() {
 		List<ContactDTO> boards = new ArrayList<ContactDTO>();
 		try {
 			con = getConnection();
@@ -63,7 +63,7 @@ public class ContactDAO {
 		return boards;
 	}
 	
-	public ContactDTO selectBoardByNo(int no) {
+	public ContactDTO selectContactByNo(int no) {
 		ContactDTO board = null;
 		try {
 			con = getConnection();
@@ -83,7 +83,7 @@ public class ContactDAO {
 		return board;
 	}
 	
-	public int insertBoard(ContactDTO contact) {
+	public int insertContact(ContactDTO contact) {
 		int result = 0;
 		try {
 			con = getConnection();

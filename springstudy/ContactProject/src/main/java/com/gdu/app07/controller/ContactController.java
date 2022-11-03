@@ -20,21 +20,21 @@ public class ContactController {
 		return "index";
 	}
 	
-	@GetMapping("b/list")
+	@GetMapping("c/list")
 	public String list(Model model) {
-		model.addAttribute("boards", contactService.listAllBoards());
-		return "board/list";
+		model.addAttribute("cards", contactService.findAllContacts());
+		return "card/list";
 	}
 	
-	@GetMapping("b/write")
+	@GetMapping("c/write")
 	public String write() {
-		return "board/write";
+		return "card/write";
 	}
 	
-	@PostMapping("b/add")
+	@PostMapping("c/add")
 	public String add(ContactDTO contact) {
-		contactService.saveBoard(contact);
-		return "redirect:/b/list";
+		contactService.register(contact);
+		return "redirect:/c/list";
 	}
 	
 	

@@ -10,26 +10,22 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import domain.Member;
 
 public class MemberDao {
-	
+
 	// field - SqlSessionFactory
 	private SqlSessionFactory factory;
-	
 	
 	// singleton pattern
 	private static MemberDao dao = new MemberDao();
 	private MemberDao() {
 		try {
-			
 			// SqlSessionFactory 빌드
 			String resource = "mybatis/config/mybatis-config.xml";
 			InputStream in = Resources.getResourceAsStream(resource);
 			factory = new SqlSessionFactoryBuilder().build(in);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 	}
-	
 	public static MemberDao getInstance() {
 		return dao;
 	}
@@ -43,5 +39,31 @@ public class MemberDao {
 		return login;
 	}
 	
-
+	public int insertMember(Member member) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.insert(mapper + "insertMember", member);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
+	
+	public int deleteMember(int memberNo) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.delete(mapper + "deleteMember", memberNo);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

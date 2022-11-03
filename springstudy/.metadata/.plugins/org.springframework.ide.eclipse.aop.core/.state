@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="03_DI"/>
 <aop-project name="06_jdbc"/>
-<aop-project name="02_MVC"/>
 <aop-project name="ContactProject"/>
-<aop-project name="01_Ioc_Container"/>
 <aop-project name="05_Ajax"/>
 <aop-project name="04_Request"/>
 </aop-reference-model>

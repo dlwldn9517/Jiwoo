@@ -3,9 +3,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<!-- namespace="mapper의 패키지 경로" -->
-  
+
 <mapper namespace="mybatis.mapper.member">
 
 	<select id="login" parameterType="Member" resultType="Member">
@@ -13,6 +11,18 @@
 		  FROM MEMBER
 		 WHERE ID = #{id} AND PW = #{pw}
 	</select>
-
- 
+	
+	<insert id="insertMember" parameterType="Member">
+		INSERT INTO MEMBER
+			(MEMBER_NO, ID, PW, NAME, EMAIL, REGISTED_DATE)
+		VALUES
+			(MEMBER_SEQ.NEXTVAL, #{id}, #{pw}, #{name}, #{email}, TO_CHAR(SYSDATE, 'yyyy-mm-dd'))
+	</insert>
+	
+	<delete id="deleteMember" parameterType="int">
+		DELETE
+		  FROM MEMBER
+		 WHERE MEMBER_NO = #{memberNo}
+	</delete>
+	
 </mapper>
