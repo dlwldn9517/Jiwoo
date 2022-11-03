@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="0AFBC4D9-8EB0-45BF-C61E-A18DE1BA4331">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:47:18 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

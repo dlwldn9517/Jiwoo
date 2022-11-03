@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="409D13BE-52DC-AACD-E5B0-5A88056798F9" mainViewID="27D16966-FE2D-A8D5-6019-FC2C314FB3C7">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:47:18 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

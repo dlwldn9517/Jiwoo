@@ -1,0 +1,83 @@
+
+ 원격 저장소 - github.com의 특정 레파지토리(저장소)
+
+        ↑
+
+ 로컬 저장소 - PC의 특정 폴더
+
+#Bash Shell
+ 1. 로컬 레파지토리 만들기 				 # 리눅스
+    1) C:GDJ 디렉토리로 이동한다. (cd C:GDJ)		~ : root디렉토리
+    2) git init                      			pwd : 현재위치
+						cd : change directory
+   						ctrl + c : 작업취소	
+ 2. 사용자 등록하기
+    1) 사용자 이름		git config user.name 'name' - jw_17
+    2) 사용자 이메일	git config user.email 'email' - dlwldn9517@naver.com
+
+------------------------------새로운 작업이 생기면 반복------------------------------
+
+ 3. 스태이징하기
+    1) git add 파일명 	- 특정 파일만 스태이징하기
+    2) git add . 		- 모든 파일을 스태이징하기
+
+ 4. 커밋하기 (저장)
+    1) git commit 
+    2) vim 편집기가 열림
+    3) a를 눌러서 추가모드로 진입
+    4) 간단한 commit message 작성 후 ESC 눌러서 추가모드 종료
+    5) :wq 눌러서 vim 편집기에서 빠져나옴 (wq : 저장하고 끝내기)
+    * 혹은
+    1) git commit -m '커밋메세지'	(ex. git commit -m '2022-07-19')
+
+===================여기까지가 로컬 레파지토리 작업===================
+
+ 1. 원격 레파지토리 만들기
+    1) github.com 회원가입 및 로그인
+    2) Create Repository
+        (1) name : GDJ
+        (2) view : public
+        (3) add README.md (mark down)
+        (4) add .gitignore -->java (스스로 안올리겠다)	- 여기 있는거 올리지마/무시해 (ex. installer, images)
+
+ 2. 원격 레파지토리 주소 확인
+	https://github.com/dlwldn9517/GDJ.git
+
+===================여기까지가 원격 레파지토리 작업===================
+
+
+=====================다시 로컬 레파지토리 작업=====================
+
+ 1. 원격 레파지토리 등록하기
+     git remote add origin '원격 레파지토리 주소'		*(마우스R-->붙여넣기)
+	--> '원격 레파지토리 주소'를 앞으로 origin으로 부른다. 
+
+ 2. 원격 레파지토리 내용을 로컬 레파지토리로 내려 받기	_ ***** 초기 설정 이후 pull 할 필요 X
+     git pull origin main [옵션 : --allow 치고나서 tab키 누르면 자동완성] --- enter키	(그전에 관계가 없어서 allow)
+	--> vim 모드로 접속되면 :wq 엔터로 빠져나옴.
+
+------------------------------새로운 작업이 생기면 반복------------------------------
+
+ 3. 업데이트 된 로컬 레파지토리 내용을 원격 레파지토리로 올리기
+     git push origin main
+
+
+## Github에 올리기
+
+ 1. GDJ 폴더에서 마우스R 클릭 후, Git BASH Here 누르기
+ 2. git init
+ 3. git config user.name dlwldn9517
+ 4. git config user.email dlwldn9517@naver.com
+ 5. git add .
+ 6. git commit -m '메세지(날짜)'
+ 7. git remote add origin https://github.com/dlwldn9517/GDJ.git	(원격저장소의 이름 : origin)
+ 8. git pull origin main --allow [tab키로 자동완성]	(원격저장소 내용 내려받기)
+	--> vim 모드로 접속되면 :wq 엔터로 빠져나옴.
+ 9. git push origin main	(원격저장소로 파일 올리기)
+ 10. 사이트 가서 확인하기
+
+** 앞으로 push만 하면 된다.**
+ 1. git add .
+ 2. git commit -m '메세지(날짜)'	***** git commit -am '메세지' (1번과 2번 합친거, 최초 1회는 3단계 걸쳐야 한다.)
+ 3. git push origin main
+ 4. 사이트에 가서 확인하기

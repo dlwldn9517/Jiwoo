@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="SCOTT" directorySegmentName="seg_0" id="FBBA1DA8-0ECE-4967-DEA0-A6F9DA2CAC7E">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>1538817F-00A8-C0BB-50FA-419DEB59ECFC</importedID>
+</SchemaObject>

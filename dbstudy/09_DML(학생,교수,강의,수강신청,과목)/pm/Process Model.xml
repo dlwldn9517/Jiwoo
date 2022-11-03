@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="CCC344F5-46EB-F590-13C1-6AC863CCC26F">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:47:18 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

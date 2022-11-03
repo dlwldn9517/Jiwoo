@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="EVENT" directorySegmentName="seg_0" id="4A33834D-E5B6-7334-9BA3-58B6F3E64A66">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<schemaObject>FBBA1DA8-0ECE-4967-DEA0-A6F9DA2CAC7E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>E2277851-F3CE-CE3B-CB9C-0C4DD2F0CC88</segment>
+<tableSpace>33A27C7E-2BA2-04C4-AB5E-88012528F7F4</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="E_INFO" id="28942D44-03FB-8C7D-00F8-DA2C98A178CA">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="E_FIRST_YEAR" id="3CF23C47-4276-C3BB-2157-CB155572D438">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="E_CODE" id="6C417782-3C77-991C-01F2-0CA7182A0CBE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="E_NAME" id="C2B60075-BE9C-A65E-531C-3E26CFBD2ADD">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_EVENT" id="52C74030-597C-E9B5-36EC-D0961E5C43D2">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<schemaObject>FBBA1DA8-0ECE-4967-DEA0-A6F9DA2CAC7E</schemaObject>
+<segment>212EF3AF-69CB-F24D-3C23-02F144FBD8A4</segment>
+<tableSpace>33A27C7E-2BA2-04C4-AB5E-88012528F7F4</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_EVENT" id="48450655-E814-08E0-846B-6931A004D829">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<segment>212EF3AF-69CB-F24D-3C23-02F144FBD8A4</segment>
+<tableSpace>33A27C7E-2BA2-04C4-AB5E-88012528F7F4</tableSpace>
+<existingIndex>52C74030-597C-E9B5-36EC-D0961E5C43D2</existingIndex>
+<indexSegment>212EF3AF-69CB-F24D-3C23-02F144FBD8A4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

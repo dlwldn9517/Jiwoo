@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9A1D4127-B250-8868-147C-67271095E34D" schemaObject="FBBA1DA8-0ECE-4967-DEA0-A6F9DA2CAC7E" name="SCHEDULE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>7FCDF4AE-ED82-A81C-89D8-CB66648A707B</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="S_NO" id="2BD2AFF2-2C33-3B38-ABE5-9B04CE33FAAE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>59BEA95F-32F9-9D49-712D-F243BBD849ED</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="N_CODE" id="C7A4D910-0B00-43EE-26F8-56BA7B825941">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>EE41F976-34F3-F305-7F7B-EE6532962D0F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="789FD0D2-0A09-448D-BC57-A26FBE7FFDAF" referredColumn="E35926D2-BB99-6866-5E3A-84FAE56675CB"/>
+</associations>
+</Column>
+<Column name="E_CODE" id="28B18C02-A252-A380-F659-DF6B5B0C6FA9">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>96E2DC84-43F9-CE52-5CD1-EDF73CCB0D6B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="847CB475-957A-CDDD-ADF6-2CBFBE2913C2" referredColumn="6C417782-3C77-991C-01F2-0CA7182A0CBE"/>
+</associations>
+</Column>
+<Column name="S_START_DATE" id="19D3B9D1-7E2D-FC24-37D0-37511E645536">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>290EB0AD-8C3E-394C-F007-79A197AC031B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="S_END_DATE" id="EBBB7AB4-A020-58CE-284C-CF1594DACA2F">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>C67A3423-E715-429F-88FF-785A3E4216A5</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="S_INFO" id="42649576-AA9B-9112-8019-C4E8821F07C7">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>0AA81BA5-5756-31D2-9564-56BBCDB6895E</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="55747CD7-0B75-DC76-F2BB-386D26873A83" name="PK_SCHEDULE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>4CAE4C99-7131-9252-BAD3-6443A2594859</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2BD2AFF2-2C33-3B38-ABE5-9B04CE33FAAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3FE3D2B3-DB33-04A6-3993-E9FE78B10C54" schemaObject="FBBA1DA8-0ECE-4967-DEA0-A6F9DA2CAC7E" name="PK_SCHEDULE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>28ED93E8-D299-5725-00A7-3BC369DDF8A0</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2BD2AFF2-2C33-3B38-ABE5-9B04CE33FAAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EB6D62FC-D5DC-86DD-6F82-208D86AC0C84" name="FK_SCHEDULE_EVENT">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="28B18C02-A252-A380-F659-DF6B5B0C6FA9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="33DA008F-3CFA-1CA6-7E19-D0D23C385678" name="FK_SCHEDULE_NATION">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C7A4D910-0B00-43EE-26F8-56BA7B825941"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

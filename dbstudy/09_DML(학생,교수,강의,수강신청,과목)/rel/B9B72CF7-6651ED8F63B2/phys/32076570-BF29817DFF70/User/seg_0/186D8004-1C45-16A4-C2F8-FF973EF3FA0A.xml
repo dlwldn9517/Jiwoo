@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="SCOTT" directorySegmentName="seg_0" id="186D8004-1C45-16A4-C2F8-FF973EF3FA0A">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:47:19 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<schemaObject>FBBA1DA8-0ECE-4967-DEA0-A6F9DA2CAC7E</schemaObject>
+</UserOraclev10g>

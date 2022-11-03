@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="789FD0D2-0A09-448D-BC57-A26FBE7FFDAF" containerWithKeyObject="9A1D4127-B250-8868-147C-67271095E34D" localFKIndex="33DA008F-3CFA-1CA6-7E19-D0D23C385678" name="FK_SCHEDULE_NATION">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<importedID>F156F922-089B-B122-3374-AB7D99E939C5</importedID>
+<referredTableLongName>SCOTT.NATION</referredTableLongName>
+<deleteRule>SET NULL</deleteRule>
+<referredTableID>3679C845-54D9-ACEB-B5D1-906A3D532CAE</referredTableID>
+<keyObject>DF0E2F2E-985B-A9BD-64A0-3D85EB1388A3</keyObject>
+<referredKeyID>DF0E2F2E-985B-A9BD-64A0-3D85EB1388A3</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>N_CODE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

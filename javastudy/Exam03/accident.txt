@@ -1,0 +1,3989 @@
+
+
+
+
+
+
+
+ 
+
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<meta name="format-detection" content="telephone=no">
+
+		
+		
+			
+				<meta name="title" property="og:title" content="도로교통공단_사망교통사고정보서비스"/>
+			
+			
+		
+
+		
+			
+				<meta name="description" property="og:description" content="사망 교통사고에 대한 개별 정보를 제공(위치 데이터 포함)"/>
+			
+			
+		
+
+		<meta name="url" property="og:url" content="https://www.data.go.kr/data/15059126/openapi.do"/>
+		<meta name="type" property="og:type" content="website"/>
+		<meta name="image" property="og:image" content="http://data.go.kr/images/biz/data-search/bg-nation.png">
+		<link rel="icon" type="image/x-icon" href="/images/biz/DATA.ico">
+
+		<meta name="google-site-verification" content="bvyY6E17BJNPJP1TbX5pgXHq4N0tuRivFDVih6bRCXQ" />
+		<meta name="naver-site-verification" content="dddd02420b56aeebf384a2b9b68a8d20a3bcd1c7" />
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+		
+			
+				<title>도로교통공단_사망교통사고정보서비스 | 공공데이터포털</title>
+			
+			
+		
+
+		
+		
+		
+
+
+
+ 
+<!-- css -->
+<link rel="stylesheet" href="/css/biz/cmm/tcs/import.css" media="all">
+<link rel="stylesheet" href="/css/app.css?t=202208234_1627" media="all">
+
+<!-- js -->
+<script src="/js/biz/cmm/tcs/jquery-1.12.4.js"></script>
+<script src="/js/biz/cmm/tcs/jquery-ui.1.12.1.js"></script>
+<script src="/js/biz/cmm/tcs/jquery.easing.1.3.js"></script>
+<script src="/js/biz/cmm/tcs/tooltipster.bundle.js"></script>
+<script src="/js/biz/cmm/tcs/jquery.modal.js"></script>
+<script src="/js/biz/cmm/tcs/dayjs.min.js"></script>
+<script src="/js/biz/cmm/tcs/ui.common.js"></script>
+<script src="/js/biz/cmm/tcs/swiper.min.js"></script>
+	
+	<!-- UI/UX팀 작업결과물 -->
+		 
+ 
+<!-- js -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/jquery.form.min.js"></script>					<!-- JQUERY form -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/placeholders.jquery.min.js"></script>			<!-- placeholder-->
+<script type="text/javascript" src="/js/biz/cmm/cmm/script_codeSetting.js"></script>				<!-- 공통js : 공통코드 selectbox 세팅 -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/script_cmmFunction.js"></script>				<!-- 공통js : 공통 기능 -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/script_stringUtil.js"></script>					<!-- 공통js : 공통 문자열처리 -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/script_numberUtil.js"></script>					<!-- 공통js : 공통 숫자처리 -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/script_openSourceSetting.js"></script>			<!-- 공통js : 오픈소스 세팅 - -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/script_cmmPopup.js"></script>					<!-- 공통js : 공통 팝업 -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/moment.js"></script>							<!-- 공통js : 날짜 -->
+
+<script type="text/javascript" src="/js/biz/cmm/cmm/loading.js"></script>			             	<!-- 임시 스크립트 : 로딩바 -->
+<script type="text/javascript" src="/js/biz/cmm/cmm/underscore.js"></script>						<!-- 임시 스크립트 : 언더스코어 -->
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="/css/biz/cmm/cmm/style_cmmCustom.css">   				<!-- 개발팀 공통 css  -->
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> 									<!-- 공통js : 카카오 SDK  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>  <!-- 공통js : copyJS  -->
+<!-- Fine Uploader template w/ customization
+  ====================================================================== -->
+<script type="text/template" id="qq-template-validation">
+        <div class="qq-uploader-selector qq-uploader">
+            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+            </div>
+            <div class="qq-upload-button-selector qq-upload-button">
+                <div>파일 선택</div>
+            </div>
+            <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                    <div class="qq-progress-bar-container-selector">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <img class="qq-thumbnail-selector" qq-max-size="100" qq-server-scale>
+                    <span class="qq-upload-file-selector qq-upload-file"></span>
+                    <span class="qq-upload-size-selector qq-upload-size"></span>
+                    <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel">[취소]</button>
+                    <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry">[재시도]</button>
+                    <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">[삭제]</button>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                </li>
+            </ul>
+            <dialog class="qq-alert-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">[닫기]</button>
+                </div>
+            </dialog>
+            <dialog class="qq-confirm-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">[아니오]</button>
+                    <button type="button" class="qq-ok-button-selector">[예]</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-prompt-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <input type="text">
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">[취소]</button>
+                    <button type="button" class="qq-ok-button-selector">[확인]</button>
+                </div>
+            </dialog>
+        </div>
+</script>
+ <script type="text/javascript">
+//  document.domain = "data.go.kr";
+
+	/**
+    * document Ready
+    */
+	$(document).ready(function(){
+		$('.date-from:text').each(function () {
+			$(this).prop("readonly", "true");
+		});
+		$('.date-to:text').each(function () {
+			$(this).prop("readonly", "true");
+		});
+		$('.date-picker-select:text').each(function () {
+			$(this).prop("readonly", "true");
+		});
+		
+	});
+</script>
+	</head>
+	<body >
+		<div class="skip">
+			<a href="#gnb" tabIndex="-1">주 메뉴 바로가기</a>
+			<a href="#contents" >콘텐츠 바로가기</a>
+			<a href="#footer" tabIndex="-1">푸터 바로가기</a>
+		</div>
+		
+		<div class="wrapper">
+			
+			<!-- 헤더+메뉴 -->
+			
+
+
+
+
+
+
+ 
+<script type="text/javascript">
+
+	/**
+	 * document Ready
+	 */
+	$(document).ready(function(){
+
+		//현재메뉴 표시
+		var currentMainMenuId = fn_getCookie("currentMainMenuId");
+
+		if(!fn_empty(currentMainMenuId)){
+			$("#"+currentMainMenuId).addClass("active");
+			$("#"+currentMainMenuId).parent().parent().parent().parent().addClass("active");
+		}else{
+			$("#gnb").find(".active").each(function(idx, entry){
+				$(this).removeClass("active");
+			});
+		}
+
+		//하위메뉴 없는 경우 불필요한 태그 삭제
+		$(".ulLower").each(function(idx, entry){
+			if($(this).find("li").length == 0){
+				$(this).parent().parent().remove();
+			}
+		});
+
+		//마이페이지는 모바일 시 depth3 스타일 지정되므로 불필요한 태그 삭제는 별도로 동작
+		$(".depth2 > ul > .depth3 > ul").each(function(idx, entry){
+			if($(this).find("li").length == 0){
+				$(this).parent().remove();
+			}
+		});
+
+	});
+
+</script>
+<header id="header" tabIndex="-1">
+	<div class="inner-wrap">
+		<h1 class="logo"><a href="/index.do" title="홈페이지 바로가기">공공데이터포털</a></h1>
+
+		<button type="button" class="btn-open-gnb just-mb">메뉴보기</button>
+
+		<div class="header-wrap">
+			<p class="logo just-mb"><a href="/index.do">공공데이터포털</a></p>
+
+			<div class="util">
+				<div class="list-regist">
+					<a href="https://all.data.go.kr" target="_blank" title="목록등록관리시스템 이동">목록등록관리시스템</a>
+				</div>
+				<div class="login">
+					
+					<!-- 로그인 전 -->
+						<div class="before">
+							<a href="javascript:window.location.href='/uim/login/loginView.do';" title="로그인 이동">로그인</a>
+
+							<a href="javascript:window.location.href='/uim/mss/socialMberInfoStep1FormView.do';" title="회원가입 이동">회원가입</a>
+						</div>
+					
+
+					
+				</div>
+
+				<div class="link">
+					<a href="javascript:window.location.href='/cmm/cmm/siteMap.do';" class="just-pc" title="사이트맵 이동">사이트맵</a>
+					<a href="/en/index.do" class="en-link" title="영문으로 보기">ENGLISH</a>
+				</div>
+			</div>
+
+			<nav id="gnb">
+				<!-- pc 일때 gnb : 링크 pc, mb 일때 둘다 넣어주세요 -->
+				<ul class="gnb-pc">
+					
+						<li id="M000100_pc">
+							
+								
+
+								
+									<a class="upperMenu" href="#" onClick="javascript:fn_movePage(this, 'M000100_pc','/');">데이터찾기</a>
+								
+							
+							<div class="depth2">
+								<div class="wrap" style="width: 1230px;">
+									<p class="tit">데이터찾기<i class="iconset ico-arr-gnb-depth2"></i></p>
+									<ul class="ulLower">
+										
+											
+												<li id="M000101_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000101_pc','/tcs/dss/selectDataSetList.do');" title="데이터목록 페이지로 이동">데이터목록</a></li>
+											
+										
+											
+												<li id="M000102_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000102_pc','/tcs/eds/selectCoreDataListView.do');" title="국가중점데이터 페이지로 이동">국가중점데이터</a></li>
+											
+										
+											
+												<li id="M000103_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000103_pc','/tcs/eds/idt/selectIssueDataList.do');" title="이슈 및 추천데이터 페이지로 이동">이슈 및 추천데이터</a></li>
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+									</ul>
+								</div>
+							</div>
+						</li>
+					
+						<li id="M000600_pc">
+							
+								
+									<a class="upperMenu" href="#" onClick="javascript:fn_movePage(this, 'M000600_pc','/tcs/opd/ndm/view.do');" title="국가데이터맵 페이지로 이동">국가데이터맵</a>
+								
+
+								
+							
+							<div class="depth2">
+								<div class="wrap" style="width: 1230px;">
+									<p class="tit">국가데이터맵<i class="iconset ico-arr-gnb-depth2"></i></p>
+									<ul class="ulLower">
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+									</ul>
+								</div>
+							</div>
+						</li>
+					
+						<li id="M000200_pc">
+							
+								
+
+								
+									<a class="upperMenu" href="#" onClick="javascript:fn_movePage(this, 'M000200_pc','/');">데이터요청</a>
+								
+							
+							<div class="depth2">
+								<div class="wrap" style="width: 1230px;">
+									<p class="tit">데이터요청<i class="iconset ico-arr-gnb-depth2"></i></p>
+									<ul class="ulLower">
+										
+											
+										
+											
+										
+											
+										
+											
+												<li id="M000201_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000201_pc','/tcs/dor/insertDataOfferReqstProcssView.do');" title="공공데이터 제공신청 페이지로 이동">공공데이터 제공신청</a></li>
+											
+										
+											
+												<li id="M000202_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000202_pc','/tcs/dor/insertTrublMdatReqstProcssView.do');" title="분쟁조정 신청 페이지로 이동">분쟁조정 신청</a></li>
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+									</ul>
+								</div>
+							</div>
+						</li>
+					
+						<li id="M000300_pc">
+							
+								
+
+								
+									<a class="upperMenu" href="#" onClick="javascript:fn_movePage(this, 'M000300_pc','/');">데이터활용</a>
+								
+							
+							<div class="depth2">
+								<div class="wrap" style="width: 1230px;">
+									<p class="tit">데이터활용<i class="iconset ico-arr-gnb-depth2"></i></p>
+									<ul class="ulLower">
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+												<li id="M000306_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000306_pc','/tcs/vas/selectVisualizationListView.do');" title="공공데이터 시각화 페이지로 이동">공공데이터 시각화</a></li>
+											
+										
+											
+												<li id="M000304_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000304_pc','/tcs/lms/mpm/memberMapList.do');" title="국민참여지도 페이지로 이동">국민참여지도</a></li>
+											
+										
+											
+												<li id="M000305_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000305_pc','/tcs/lms/liv/selectLocationView.do');" title="위치정보 시각화 페이지로 이동">위치정보 시각화</a></li>
+											
+										
+											
+												<li id="M000301_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000301_pc','/tcs/puc/selectPublicUseCaseListView.do');" title="공공데이터 활용사례 페이지로 이동">공공데이터 활용사례</a></li>
+											
+										
+											
+												<li id="M000307_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000307_pc','/tcs/eds/ctm/selectContestDataList.do');" title="공공데이터 우수사례 페이지로 이동">공공데이터 우수사례</a></li>
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+									</ul>
+								</div>
+							</div>
+						</li>
+					
+						<li id="M000400_pc">
+							
+								
+
+								
+									<a class="upperMenu" href="#" onClick="javascript:fn_movePage(this, 'M000400_pc','/');">정보공유</a>
+								
+							
+							<div class="depth2">
+								<div class="wrap" style="width: 1230px;">
+									<p class="tit">정보공유<i class="iconset ico-arr-gnb-depth2"></i></p>
+									<ul class="ulLower">
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+												<li id="M000406_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000406_pc','/bbs/dnb/selectDeveloperNetworkListView.do');" title="개발자 네트워크 페이지로 이동">개발자 네트워크</a></li>
+											
+										
+											
+												<li id="M000405_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000405_pc','/bbs/dsb/selectDataShareContentsListView.do');" title="데이터 공유하기 페이지로 이동">데이터 공유하기</a></li>
+											
+										
+											
+												<li id="M000404_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000404_pc','/bbs/ntc/selectNoticeListView.do');" title="공지사항 페이지로 이동">공지사항</a></li>
+											
+										
+											
+												<li id="M000402_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000402_pc','/bbs/rcr/selectRecsroomList.do');" title="자료실 페이지로 이동">자료실</a></li>
+											
+										
+											
+												<li id="M000403_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000403_pc','/bbs/faq/selectFaqList.do');" title="문의하기 페이지로 이동">문의하기</a></li>
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+									</ul>
+								</div>
+							</div>
+						</li>
+					
+						<li id="M000500_pc">
+							
+								
+
+								
+									<a class="upperMenu" href="#" onClick="javascript:fn_movePage(this, 'M000500_pc','/');">이용안내</a>
+								
+							
+							<div class="depth2">
+								<div class="wrap" style="width: 1230px;">
+									<p class="tit">이용안내<i class="iconset ico-arr-gnb-depth2"></i></p>
+									<ul class="ulLower">
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+										
+											
+												<li id="M000504_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000504_pc','/ugs/selectPublicDataUseGuideView.do');" title="공공데이터 이용가이드 페이지로 이동">공공데이터 이용가이드</a></li>
+											
+										
+											
+												<li id="M000501_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000501_pc','/ugs/selectPortalInfoView.do');" title="공공데이터포털 소개 페이지로 이동">공공데이터포털 소개</a></li>
+											
+										
+											
+												<li id="M000502_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000502_pc','/ugs/selectPortalPolicyView.do');" title="공공데이터 정책 페이지로 이동">공공데이터 정책</a></li>
+											
+										
+											
+												<li id="M000503_pc"><a href="#" onClick="javascript:fn_movePage(this, 'M000503_pc','/ugs/selectPublicDataQlityView.do');" title="공공데이터 품질관리 페이지로 이동">공공데이터 품질관리</a></li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						</li>
+					
+				</ul>
+
+				<!-- 모바일 일때 gnb : 링크 pc, mb 일때 둘다 넣어주세요 -->
+				<!-- 모바일 일때 국가데이터맵은 서비스 하지않음 -->
+				<ul class="gnb-mb">
+					
+						
+							<li id="M000100_mb">
+								<a class='upperMenu' href="#" onClick="javascript:fn_movePage(this, 'M000100_mb','/',true);">데이터찾기</a>
+								<div class="depth2">
+									<div class="wrap">
+										<ul class="ulLower">
+											
+												
+													<li id="M000101_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000101_mb','/tcs/dss/selectDataSetList.do');">데이터목록</a></li>
+												
+											
+												
+													<li id="M000102_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000102_mb','/tcs/eds/selectCoreDataListView.do');">국가중점데이터</a></li>
+												
+											
+												
+													<li id="M000103_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000103_mb','/tcs/eds/idt/selectIssueDataList.do');">이슈 및 추천데이터</a></li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									</div>
+								</div>
+							</li>
+						
+					
+						
+					
+						
+							<li id="M000200_mb">
+								<a class='upperMenu' href="#" onClick="javascript:fn_movePage(this, 'M000200_mb','/',true);">데이터요청</a>
+								<div class="depth2">
+									<div class="wrap">
+										<ul class="ulLower">
+											
+												
+											
+												
+											
+												
+											
+												
+													<li id="M000201_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000201_mb','/tcs/dor/insertDataOfferReqstProcssView.do');">공공데이터 제공신청</a></li>
+												
+											
+												
+													<li id="M000202_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000202_mb','/tcs/dor/insertTrublMdatReqstProcssView.do');">분쟁조정 신청</a></li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									</div>
+								</div>
+							</li>
+						
+					
+						
+							<li id="M000300_mb">
+								<a class='upperMenu' href="#" onClick="javascript:fn_movePage(this, 'M000300_mb','/',true);">데이터활용</a>
+								<div class="depth2">
+									<div class="wrap">
+										<ul class="ulLower">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li id="M000306_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000306_mb','/tcs/vas/selectVisualizationListView.do');">공공데이터 시각화</a></li>
+												
+											
+												
+													<li id="M000304_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000304_mb','/tcs/lms/mpm/memberMapList.do');">국민참여지도</a></li>
+												
+											
+												
+													<li id="M000305_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000305_mb','/tcs/lms/liv/selectLocationView.do');">위치정보 시각화</a></li>
+												
+											
+												
+													<li id="M000301_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000301_mb','/tcs/puc/selectPublicUseCaseListView.do');">공공데이터 활용사례</a></li>
+												
+											
+												
+													<li id="M000307_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000307_mb','/tcs/eds/ctm/selectContestDataList.do');">공공데이터 우수사례</a></li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									</div>
+								</div>
+							</li>
+						
+					
+						
+							<li id="M000400_mb">
+								<a class='upperMenu' href="#" onClick="javascript:fn_movePage(this, 'M000400_mb','/',true);">정보공유</a>
+								<div class="depth2">
+									<div class="wrap">
+										<ul class="ulLower">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li id="M000406_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000406_mb','/bbs/dnb/selectDeveloperNetworkListView.do');">개발자 네트워크</a></li>
+												
+											
+												
+													<li id="M000405_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000405_mb','/bbs/dsb/selectDataShareContentsListView.do');">데이터 공유하기</a></li>
+												
+											
+												
+													<li id="M000404_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000404_mb','/bbs/ntc/selectNoticeListView.do');">공지사항</a></li>
+												
+											
+												
+													<li id="M000402_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000402_mb','/bbs/rcr/selectRecsroomList.do');">자료실</a></li>
+												
+											
+												
+													<li id="M000403_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000403_mb','/bbs/faq/selectFaqList.do');">문의하기</a></li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									</div>
+								</div>
+							</li>
+						
+					
+						
+							<li id="M000500_mb">
+								<a class='upperMenu' href="#" onClick="javascript:fn_movePage(this, 'M000500_mb','/',true);">이용안내</a>
+								<div class="depth2">
+									<div class="wrap">
+										<ul class="ulLower">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li id="M000504_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000504_mb','/ugs/selectPublicDataUseGuideView.do');">공공데이터 이용가이드</a></li>
+												
+											
+												
+													<li id="M000501_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000501_mb','/ugs/selectPortalInfoView.do');">공공데이터포털 소개</a></li>
+												
+											
+												
+													<li id="M000502_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000502_mb','/ugs/selectPortalPolicyView.do');">공공데이터 정책</a></li>
+												
+											
+												
+													<li id="M000503_mb"><a href="#" onClick="javascript:fn_movePage(this,'M000503_mb','/ugs/selectPublicDataQlityView.do');">공공데이터 품질관리</a></li>
+												
+											
+										</ul>
+									</div>
+								</div>
+							</li>
+						
+					
+					<!-- 모바일 일때 마이페이지 메뉴도 제공 -->
+					
+				</ul>
+			</nav>
+			<button type="button" class="btn-close-gnb just-mb">메뉴보기</button>
+		</div>
+	</div>
+</header>
+
+<script type="text/javascript">
+
+	/**
+    * 페이지 이동
+    * @param  : menuId - 메뉴 ID
+    * @param  : menuUrl - 이동 menuUrl
+    * @return : 없음
+    */
+	function fn_movePage(obj, menuId, menuUrl){
+
+    	if(fn_empty(menuUrl)) return;
+
+		//상위메뉴가 아닌 경우만 URL 호출
+		if($(obj).prop("class") != "upperMenu"){
+			if(menuUrl == "/"){
+				alert("서비스 준비중입니다.");
+				return;
+			}
+
+			fn_setCookie("currentMainMenuId", menuId, 1);
+			window.location.href = menuUrl;
+		//상위메뉴면서 하위메뉴가 없는 경우, URL 호출
+		}else{
+			if($(obj).next().length == 0){
+				if(menuUrl == "/"){
+					alert("서비스 준비중입니다.");
+					return;
+				}else{
+					fn_setCookie("currentMainMenuId", menuId, 1);
+					document.location.href = menuUrl;
+				}
+
+			}
+		}
+    }
+</script>
+
+			
+			<!-- 임시 스타일 지정 -->
+			<div class="container">
+				
+				
+				<!-- url에 '/iim/'이 포함되어있으면 마이페이지 왼쪽메뉴 표시 -->
+				<div class='content-layout '>
+					
+					<div id="contents">
+						<!-- 본문 -->
+						
+
+
+
+
+
+
+ <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.12.1/swagger-ui.css">
+<script src="/js/swagger-ui/swagger-ui-manager.js"></script>
+
+
+
+
+
+
+
+ 
+
+
+
+
+    
+    
+    
+    
+        
+            
+            
+                
+            
+        
+    
+
+
+<script type="application/ld+json">
+    {
+        "@context":"https://schema.org/",
+        "@type":"Dataset",
+        "name":"도로교통공단_사망교통사고정보서비스",
+        "description":"사망 교통사고에 대한 개별 정보를 제공(위치 데이터 포함)",
+        "url": "https://data.go.kr/data/15059126/openapi.do",
+        "keywords":[
+            "사망 교통사고,개별정보,위치좌표"
+        ],
+        "license" : "https://data.go.kr/ugs/selectPortalPolicyView.do",
+        "creator":{
+            "@type":"Organization",
+            "name":"도로교통공단",
+            "contactPoint":{
+                "@type":"ContactPoint",
+                "contactType": "데이터융합처",
+                "telephone":"+82-0337495266"
+            }
+        },
+        "dateCreated": "2015-12-29",
+        "dateModified": "2022-07-19",
+        "datePublished": "2015-12-29",
+        "includedInDataCatalog":{
+            "@type":"DataCatalog",
+            "name":"data.go.kr"
+        },
+        "distribution":[
+            {
+                "@type":"DataDownload",
+                "encodingFormat":"JSON",
+                "contentUrl": "https://data.go.kr/data/15059126/openapi.do"
+            }
+        ]
+    }
+</script>
+<script type="text/javascript" src="/js/biz/dss/script_errorReport.js"></script>
+<script type="text/javascript">
+
+    /**
+     * document ready 함수
+     */
+    $(function () {
+        //타이틀
+        
+        
+
+        // $('.filter-section .tit-area .tit').text("필터");
+    });
+
+</script>
+
+<!-- page-title-area -->
+<div class="page-title-area">
+    <h2 class="tit just-pc">오픈API 상세</h2>
+
+    <div class="page-move just-mb">
+        <button type="button" class="now">데이터셋</button>
+
+        <ul class="list">
+            <li><a href="">국가중점데이터</a></li>
+            <li><a href="">이슈데이터</a></li>
+        </ul>
+    </div>
+
+    <div class="sns-share orgSearch">
+
+        <div class="fb-share-button" data-href="https://www.data.go.kr/" data-layout="button_count"
+             style="display:block; float:left; width:32px; height:32px; margin:0 0 0 10px; padding:0; border:0; background-color:transparent;">
+            <a href="#" class="fb-xfml-parse-ignore" onclick="fn_SetParamSns('facebook');" title="페이스북 공유">
+                <i class="iconset ico-facebook">페이스북</i>
+            </a>
+        </div>
+
+        <button type="button" class="sns" onclick="fn_SetParamSns('twitter');" title="트위터 공유">
+            <i class="iconset ico-twitter">트위터</i>
+        </button>
+
+        <button type="button" class="sns" onclick="fn_SetParamSns('kakao');" title="카카오스토리 공유">
+            <i class="iconset ico-kakao">카카오</i>
+        </button>
+
+        <button type="button" class="url" onclick="fn_urlCopy()" title="url 복사">URL 복사</button>
+    </div>
+</div>
+<!--// page-title-area -->
+
+<!-- data-search-view -->
+<div class="data-search-view">
+    <!-- data-set-title -->
+    <div class="data-set-title open-api">
+        <div class="tit-area">
+            
+            
+
+            
+
+            
+                
+            
+
+            
+                
+                
+					<span class="tagset json">
+                            JSON
+                    </span>
+                
+            
+            <p class="tit open-api-title">도로교통공단_사망교통사고정보서비스</p>
+            <input type="hidden" id="publicDataDetailPk"
+                   value="uddi:daeb6291-074d-4093-b254-ec7200988460_202008131553"/>
+            <input type="hidden" id="publicDataPk" value="15059126"/>
+        </div>
+
+        <div class="cont">
+            <span style="white-space: pre-line">사망 교통사고에 대한 개별 정보를 제공(위치 데이터 포함)</span>
+        </div>
+
+        
+        
+
+
+
+
+
+
+ <button id="likeBtn" type="button" class="orgSearch button white btn-good h32 " onclick="cmmnDataSetDetailObj.fn_saveLike('evaluation')" title="좋아요 누르기">
+	<i class="iconset ico-good blue">좋아요 선택 안함, 좋아요 선택한 사람 수</i>
+	<span id="likeCnt">7</span>
+</button>
+<button id="hateBtn" type="button" class="orgSearch button white btn-hate h32 " onclick="cmmnDataSetDetailObj.fn_saveHate('evaluation')" title="싫어요 누르기">
+	<i class="iconset ico-hate red">싫어요 선택 안함, 싫어요 선택한 사람 수</i>
+	<span id="hateCnt">0</span>
+</button>
+
+<!-- 2020-01-21 : 마크업 오류 수정 -->
+
+	
+	
+		<button type="button" class="orgSearch button white btn-like" id="attentionBtn" onclick="cmmnDataSetDetailObj.fn_attention('API')" title="관심 목록에 추가"><i class="iconset ico-like"></i> 관심</button>
+	
+
+
+
+        <div class="btn-util orgSearch d-flex flex-flow">
+            
+                
+                    <a href="javascript:void(0)" class="button mb-3"
+                       onclick="fn_goOpenAPIRequestForm('15059126')"
+                       title="활용신청 바로가기">
+						<i class="iconset ico-pencil"></i> 활용신청
+					</a>
+                
+
+                
+            
+            <a href="javascript:fn_callErrorReportPopup('', 'O', '15059126','uddi:daeb6291-074d-4093-b254-ec7200988460_202008131553', '');"
+               class="button error-btn just-pc" title="문의 바로가기">
+                <p>오류신고 및</p>
+                <p>담당자 문의</p>
+            </a>
+
+            <a href="javascript:fn_callErrorReportPopup('', 'F', '15059126','uddi:daeb6291-074d-4093-b254-ec7200988460_202008131553', '');"
+               class="button error-btn just-mb" title="새 창으로 문의 열기">
+                오류신고 및 담당자 문의
+            </a>
+        </div>
+    </div>
+
+    <div class="recommend-after-download" style="margin-top: 0px;">
+        
+
+
+
+
+
+
+ 
+
+    <div class="" style="display: flow-root; margin: 15px 0 0 0; padding: 0 0 10px 0;">
+    <span class="recommend-data-tit">
+        다른 사용자들이 <span class="import">활용한 데이터</span>
+    </span>
+            
+    </div>
+    <div class="custom-row mb-4">
+        
+            <div class="recommend-login-box-wrap">
+                <div class="desc">
+                    로그인하셔서 다른 사용자들이 활용한 데이터를 추천받아 보세요
+                </div>
+                <div class="text-lg-center">
+                    <a href="/uim/login/loginView.do" class="button">
+                        로그인
+                    </a>
+                </div>
+            </div>
+        
+        
+    </div>
+
+
+
+
+<script>
+
+    var fn_pdownload = function () {
+        var prd_list = [];
+        // var pk_list = [];
+        for (var i = 0; i < 5; i++) {
+            var self = $("#personal-data-" + i);
+
+            var tyCode = self.data("code");
+            var publicDataPk = self.data("pk");
+            var publicDataDetailPk = self.data("dpk");
+
+            prd_list.push({
+                tyCode: tyCode,
+                publicDataPk: publicDataPk,
+                publicDataDetailPk: publicDataDetailPk
+            });
+            // pk_list.push({publicDataPk: publicDataPk});
+            // pk_list.push(publicDataPk);
+        }
+
+        console.log({pk: prd_list});
+
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        for (var i = 0; i < 5; i++) {
+            var self = prd_list[i];
+
+            if (self.tyCode == 'API')
+                continue;
+            else if (self.tyCode == 'FILE') {
+                fn_fileDataDown(self.publicDataPk, self.publicDataDetailPk);
+            }
+            else if (self.tyCode == 'STD') {
+                window.open(
+                    "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+                    '_blank');
+                // window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+            }
+        }
+    }
+
+    var fn_fileDataDown = function(publicDataPk, publicDataDetailPk) {
+
+        $.ajax({
+            url		: "/tcs/dss/selectFileDataDownload.do?recommendDataYn=Y",
+            data	: {"publicDataPk"	: publicDataPk,
+                "publicDataDetailPk"	: publicDataDetailPk},
+            success	: function(data) {
+                var jsonObj = JSON.parse(data);
+
+                if (jsonObj.status === true) {
+                    fn_fileDataDownload(jsonObj.atchFileId, jsonObj.fileDetailSn, jsonObj.dataSetFileDetailInfo.dataNm);
+                } else {
+                    alert("파일 다운로드에 실패했습니다.");
+                }
+            }
+        })
+    }
+
+    var fn_fileDataGoLink = function(publicDataPk) {
+
+        $.ajax({
+            url		: "/tcs/dss/selectLinkUrl.do",
+            data	: {"publicDataPk"	: publicDataPk},
+            success	: function(data) {
+                var jsonObj	= JSON.parse(data);
+
+                if (jsonObj.status === true) {
+                    var openNewWindow = window.open("about:blank");
+
+                    openNewWindow.location.href = jsonObj.linkUrl;
+                } else {
+                    alert(jsonObj.errorDc);
+                }
+            }
+        })
+    }
+
+    var fn_LinkApiRequest = function(publicDataDetailPk) {
+
+        $.ajax({
+            url: "/tcs/dss/addApiLinkPrcuse.do",
+            type: "POST",
+            data	: {"param"	: publicDataDetailPk},
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
+</script>
+    </div>
+    <!--// data-set-title -->
+
+    
+
+    
+    <div class="file-meta-table-pc">
+        
+
+
+
+
+
+
+ <h3 class="tit">
+    <div class="dataset-openapi-info">
+        <div>
+            OpenAPI 정보
+            <div class="dropdown ml-2">
+                <button class="button h36 dropbtn">
+                    <i class="fa fa-tags"></i> 메타데이터 다운로드
+                </button>
+                <div class="dropdown-content">
+                    <a href="/catalog/15059126/openapi.json"
+                       target="_blank">schema.org</a>
+                    <a href="/dcat/metadata/15059126"
+                       target="_blank">DCAT</a>
+                </div>
+            </div>
+        </div>
+        <div style="display: none">
+            <a href="/assets/csvs/목록개방리스트.csv" id="test1" class="list-csv-download"
+               onclick="fn_listCsvDownload('목록개방리스트')">목록개방리스트</a>
+            <a href="/assets/csvs/파일데이터개방리스트.csv" id="test2" class="list-csv-download"
+               onclick="fn_listCsvDownload('파일데이터개방리스트')">파일데이터개방리스트</a>
+            <a href="/assets/csvs/API개방리스트.csv" id="test3" class="list-csv-download"
+               onclick="fn_listCsvDownload('API개방리스트')">API개방리스트</a>
+        </div>
+    </div>
+</h3>
+
+<table class="dataset-table">
+    <caption>도로교통공단_사망교통사고정보서비스로 오픈 API 정보 표로 분류체계, 제공기관 등 정보를 나타냄</caption>
+    <tr class="bg-beige tr">
+        <th class="th custom-cell-border-bottom custom-cell-border-right">분류체계</th>
+        <td class="td custom-cell-border-bottom">공공질서및안전 - 안전관리</td>
+        <th class="th custom-cell-border-bottom custom-cell-border-right">제공기관</th>
+        <td class="td custom-cell-border-bottom">도로교통공단</td>
+    </tr>
+    <tr class="bg-beige tr">
+        <th class="th custom-cell-border-bottom custom-cell-border-right">관리부서명</th>
+        <td class="td custom-cell-border-bottom">데이터융합처</td>
+        <th class="th custom-cell-border-bottom custom-cell-border-right">관리부서 전화번호</th>
+        <td class="td custom-cell-border-bottom"><strong>
+            <div id="telNo"></div>
+        </strong>
+            <script>
+                var telNo = "0337495266";
+
+                if (telNo !== null && telNo !== "null" && telNo !== "nullnullnull") {
+                    $("#telNo").text(telNo.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3"));
+                }
+            </script>
+        </td>
+    </tr>
+    <tr class="bg-skyblue tr">
+        <th class="th custom-cell-border-bottom custom-cell-border-right">API 유형</th>
+        <td class="td custom-cell-border-bottom">REST</td>
+        <th class="th custom-cell-border-bottom custom-cell-border-right">데이터포맷</th>
+        <td class="td custom-cell-border-bottom">JSON</td>
+    </tr>
+    <tr class="bg-skyblue tr">
+        <th class="th custom-cell-border-bottom custom-cell-border-right">활용신청</th>
+        <td class="td custom-cell-border-bottom">1301</td>
+        <th class="th custom-cell-border-bottom custom-cell-border-right">키워드</th>
+        <td class="td custom-cell-border-bottom">사망 교통사고,개별정보,위치좌표</td>
+    </tr>
+    <tr class="bg-skyblue tr">
+        <th class="th custom-cell-border-bottom custom-cell-border-right">등록</th>
+        <td class="td custom-cell-border-bottom">2015-12-29</td>
+        <th class="th custom-cell-border-bottom custom-cell-border-right">수정</th>
+        <td class="td custom-cell-border-bottom">2022-07-19</td>
+    </tr>
+
+    
+    <tr class="bg-skyblue tr">
+        <th class="th custom-cell-border-bottom custom-cell-border-right">비용부과유무</th>
+        <td class="td custom-cell-border-bottom">무료</td>
+        <th class="th custom-cell-border-bottom custom-cell-border-right">신청가능 트래픽</th>
+        <td class="td custom-cell-border-bottom">
+            
+                
+                    10,000
+                
+                
+            
+            / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
+        </td>
+    </tr>
+    
+        <tr class="bg-skyblue tr">
+            <th class="th custom-cell-border-bottom custom-cell-border-right">심의유형</th>
+            <td class="td custom-cell-border-bottom" colspan="2">
+                개발단계 :
+                
+                    자동승인
+                    
+                
+                / 운영단계 :
+                
+                    자동승인
+                    
+                
+            </td>
+        </tr>
+    
+    <tr class="bg-green tr">
+        <th class="th custom-cell-border-bottom custom-cell-border-right">이용허락범위</th>
+        <td class="td custom-cell-border-bottom" colspan="2">
+            <div class="img-copyright">
+                
+
+
+
+
+
+
+ 
+	
+
+	
+
+	
+
+	
+
+	
+	
+	
+		<a href="/ugs/selectPortalPolicyView.do" target="_blank" title="새 창으로 공공데이터포털 정책 열기">
+   			이용허락범위 제한 없음
+   		</a>
+	
+
+            </div>
+        </td>
+    </tr>
+    <tr class="bg-green tr">
+        <th class="th custom-cell-border-right">참고문서</th>
+        <td class="td" colspan="2">
+			<a href="javascript:void(0)" onclick="fn_fileDownload('FILE_000000002572823','1')" title="참고문서 다운로드">
+				220714_기술문서_도로교통공단_사망교통사고정보.hwp
+			</a>
+		</td>
+    </tr>
+</table>
+
+
+    <div class="tab-wrap common-data-tab" style="margin-top: 20px">
+        <nav class="tab-list tab-layer col-3">
+            <ul>
+                <li class="on"><a href="#tab_layer_detail_function">상세기능</a></li>
+                <li><a href="#tab_layer_prcuse_exam" onclick="fn_selectPrcuseList()">활용사례</a></li>
+                <li><a href="#tab_layer_recommend_data">추천데이터</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="tab-wrap common-data-tab">
+        <!-- 그리드 tab -->
+        <div id="tab_layer_detail_function" class="tab-cont on">
+            
+                
+                
+                    
+                        
+                            
+                                
+                            
+                            
+
+
+
+
+
+
+ 
+<!-- open-api-detail-result -->
+<div class="open-api-detail-result" id="open-api-detail-result">
+	
+
+	
+
+
+
+
+
+
+	
+		
+			<h4 class="tit" style="display: inline; margin-right: 10px;">활용명세</h4>
+			<div id="api-swagger"></div>
+		
+		
+	
+</div>
+<!--// open-api-detail-result -->
+	
+<script type="text/javascript">
+	var apiObj = {
+		
+		fn_selectSampleCode	: function(type) {
+			$(".sampleCodeType").removeClass("on");
+			$("#sampleCodeAreaDiv > ." + type).addClass("on");
+			
+			var dataObj		= {};
+			var paramList	= [];
+			
+			dataObj.publicDataDetailPk = $("#publicDataDetailPk").val();
+			dataObj.oprtinSeqNo = "25675";
+			
+				
+					dataObj.oprtinUrl = "http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath";
+				
+				
+			
+
+			dataObj.paramtrSe = "1";
+			dataObj.serviceKey = "";
+			dataObj.type = type;
+			
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "ServiceKey";
+					paramObj.paramtrKorNm = "인증키";
+					paramObj.paramtrDc = "공공데이터포털에서 발급받은 인증키";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "인증키(URL Encode)";
+					paramObj.paramtrSize = "100";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "searchYear";
+					paramObj.paramtrKorNm = "발생연도";
+					paramObj.paramtrDc = "조회하고자 하는 연도값 입력(값 없을시 공백리턴)";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "2014";
+					paramObj.paramtrSize = "7";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "siDo";
+					paramObj.paramtrKorNm = "시도코드";
+					paramObj.paramtrDc = "코드종류 코드값전체 공백시 전체 선택서울특별시 1100부산광역시 1200대전광역시 2500대구광역시 2200광주광역시 2400인천광역시 2300울산광역시 2600세종특별자치시 2700경기도 1300강원도 1400충청남도 1600충청북도 1500전라남도 1800전라북도 1700경상남도 2000경상북도 1900제주특별자치도 2100";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "1100";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "guGun";
+					paramObj.paramtrKorNm = "시군구코드";
+					paramObj.paramtrDc = "시도 코드종류 코드값서울특별시 강남구 1116 강동구 1117 강북구 1124 강서구 1111 관악구 1115 광진구 1123 구로구 1112 금천구 1125 노원구 1122 도봉구 1107 동대문구 1105 동작구 1114 마포구 1110 서대문구 1109 서초구 1119 성동구 1104 성북구 1106 송파구 1118 양천구 1120 영등포구 1113 용산구 1103 은평구 1108 종로구 1101 중구 1";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "1117";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "type";
+					paramObj.paramtrKorNm = "데이터유형";
+					paramObj.paramtrDc = "결과형식(xml/json)";
+					paramObj.paramtrDivision = "옵";
+					paramObj.paramtrBassValue = "xml";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "numOfRows";
+					paramObj.paramtrKorNm = "검색건수";
+					paramObj.paramtrDc = "검색건수";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "10";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "pageNo";
+					paramObj.paramtrKorNm = "페이지 번호";
+					paramObj.paramtrDc = "페이지 번호";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "1";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			
+			dataObj.paramList = JSON.stringify(paramList);
+			
+			$.ajax({
+				url		: "/tcs/dss/selectSampleCode.do",
+				method	: "post",
+				data	: dataObj,
+				
+				success	: function(data) {
+					var reformedData = data.replace(/\\/gi, "");
+					reformedData = reformedData.substr(0, reformedData.length -1);
+					reformedData = reformedData.substr(1, reformedData.length);
+					$("#sampleCodeArea").html(reformedData).show();
+				}
+			})
+		},
+		
+		fn_selectApiDetailFunction	: function() {
+			var dataObj = {};
+			
+			dataObj.oprtinSeqNo = $("#open_api_detail_select").val();
+			dataObj.publicDataDetailPk	= $("#publicDataDetailPk").val();
+			dataObj.publicDataPk	= $("#publicDataPk").val();
+			
+			// 국가 중점 표준데이터인 경우 피케이가 변경돼야함.
+// 			if ($("#natCoreDataSe").val() === "Y") {
+// 				dataObj.publicDataPk	= $("#stdPublicDataPk").val();
+// 			}
+			
+			$.ajax({
+				url		: "/tcs/dss/selectApiDetailFunction.do",
+				method	: "post",
+				data	: dataObj,
+				
+				success	: function(data) {
+					$("#open-api-detail-result").remove();
+					$("#apiDetailFunctionDiv").append(data);
+				}
+			})
+		},
+		
+		fn_goApplyReq				: function() {
+			var mberId = "";
+			
+			if (fn_empty(mberId)) {
+				
+				if (confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")) {
+					location.href = "/uim/login/loginView.do";
+					return;
+				} else {
+					return;
+				}
+			}
+			
+			location.href="/tcs/dss/redirectDevAcountRequestForm.do?publicDataPk=" + $("#publicDataPk").val();
+		}
+	}
+</script>
+                        
+                    
+                
+            
+        </div>
+        <div id="tab_layer_prcuse_exam" class="tab-cont">
+
+        </div>
+
+            
+        <div id="tab_layer_recommend_data" class="tab-cont">
+            
+
+
+
+
+
+
+ 
+
+    <div class="" style="display: flow-root; margin: 15px 0 0 0; padding: 0 0 10px 0;">
+    <span class="recommend-data-tit">
+        다른 사용자들이 <span class="import">활용한 데이터</span>
+    </span>
+            
+    </div>
+    <div class="custom-row mb-4">
+        
+            <div class="recommend-login-box-wrap">
+                <div class="desc">
+                    로그인하셔서 다른 사용자들이 활용한 데이터를 추천받아 보세요
+                </div>
+                <div class="text-lg-center">
+                    <a href="/uim/login/loginView.do" class="button">
+                        로그인
+                    </a>
+                </div>
+            </div>
+        
+        
+    </div>
+
+
+
+
+<script>
+
+    var fn_pdownload = function () {
+        var prd_list = [];
+        // var pk_list = [];
+        for (var i = 0; i < 5; i++) {
+            var self = $("#personal-data-" + i);
+
+            var tyCode = self.data("code");
+            var publicDataPk = self.data("pk");
+            var publicDataDetailPk = self.data("dpk");
+
+            prd_list.push({
+                tyCode: tyCode,
+                publicDataPk: publicDataPk,
+                publicDataDetailPk: publicDataDetailPk
+            });
+            // pk_list.push({publicDataPk: publicDataPk});
+            // pk_list.push(publicDataPk);
+        }
+
+        console.log({pk: prd_list});
+
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        for (var i = 0; i < 5; i++) {
+            var self = prd_list[i];
+
+            if (self.tyCode == 'API')
+                continue;
+            else if (self.tyCode == 'FILE') {
+                fn_fileDataDown(self.publicDataPk, self.publicDataDetailPk);
+            }
+            else if (self.tyCode == 'STD') {
+                window.open(
+                    "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+                    '_blank');
+                // window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+            }
+        }
+    }
+
+    var fn_fileDataDown = function(publicDataPk, publicDataDetailPk) {
+
+        $.ajax({
+            url		: "/tcs/dss/selectFileDataDownload.do?recommendDataYn=Y",
+            data	: {"publicDataPk"	: publicDataPk,
+                "publicDataDetailPk"	: publicDataDetailPk},
+            success	: function(data) {
+                var jsonObj = JSON.parse(data);
+
+                if (jsonObj.status === true) {
+                    fn_fileDataDownload(jsonObj.atchFileId, jsonObj.fileDetailSn, jsonObj.dataSetFileDetailInfo.dataNm);
+                } else {
+                    alert("파일 다운로드에 실패했습니다.");
+                }
+            }
+        })
+    }
+
+    var fn_fileDataGoLink = function(publicDataPk) {
+
+        $.ajax({
+            url		: "/tcs/dss/selectLinkUrl.do",
+            data	: {"publicDataPk"	: publicDataPk},
+            success	: function(data) {
+                var jsonObj	= JSON.parse(data);
+
+                if (jsonObj.status === true) {
+                    var openNewWindow = window.open("about:blank");
+
+                    openNewWindow.location.href = jsonObj.linkUrl;
+                } else {
+                    alert(jsonObj.errorDc);
+                }
+            }
+        })
+    }
+
+    var fn_LinkApiRequest = function(publicDataDetailPk) {
+
+        $.ajax({
+            url: "/tcs/dss/addApiLinkPrcuse.do",
+            type: "POST",
+            data	: {"param"	: publicDataDetailPk},
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
+</script>
+
+            
+
+
+
+
+
+
+ <div class="" style="display: flow-root; margin: 15px 0 0 0; padding: 0 0 10px 0;">
+    <span class="recommend-data-tit">
+        이 데이터와 <span class="import">유사한 데이터</span>
+    </span>
+
+</div>
+<div class="custom-row mb-4">
+    
+        <div class="col-2dot4 recommend-pc" id="recommend-data-0" data-pk="15056770" data-dpk="uddi:16537e3f-eeee-49bc-9237-a68284632091_202010261312" data-code="API">
+            <div class="tag-area mb-2">
+                
+                
+                
+                    <span class="tagset_api">오픈 API</span>
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                
+                
+                    <a href="/data/15056770/openapi.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_지자체별 대상사고통계정보 조회 서비스</span>
+                    </a>
+                
+            </div>
+        </div>
+        <div class="col-2dot4 recommend-mobile" id="recommend-data-0" data-pk="15056770" data-dpk="uddi:16537e3f-eeee-49bc-9237-a68284632091_202010261312" data-code="API">
+            <div class="tag-area mb-2">
+                
+                
+                
+                    <span class="tagset_api">오픈 API</span>
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                
+                
+                    <a href="/data/15056770/openapi.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_지자체별 대상사고통계정보 조회 서비스</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+        <div class="col-2dot4 recommend-pc" id="recommend-data-1" data-pk="15057467" data-dpk="uddi:514095b8-8b6b-419b-a81c-e934cbf816ec" data-code="API">
+            <div class="tag-area mb-2">
+                
+                
+                
+                    <span class="tagset_api">오픈 API</span>
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                
+                
+                    <a href="/data/15057467/openapi.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_지자체별사고 다발지역정보 조회 서비스</span>
+                    </a>
+                
+            </div>
+        </div>
+        <div class="col-2dot4 recommend-mobile" id="recommend-data-1" data-pk="15057467" data-dpk="uddi:514095b8-8b6b-419b-a81c-e934cbf816ec" data-code="API">
+            <div class="tag-area mb-2">
+                
+                
+                
+                    <span class="tagset_api">오픈 API</span>
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                
+                
+                    <a href="/data/15057467/openapi.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_지자체별사고 다발지역정보 조회 서비스</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+        <div class="col-2dot4 recommend-pc" id="recommend-data-2" data-pk="15070340" data-dpk="uddi:c0269355-bc0f-4a68-8cad-fbe06a0f9347" data-code="FILE">
+            <div class="tag-area mb-2">
+                
+                    <span class="tagset_file">파일데이터</span>
+                
+                
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                        <a href="javascript:void(0);" id="file_download" class="iconset ico-down black" onclick="fn_fileDataDown('15070340', 'uddi:c0269355-bc0f-4a68-8cad-fbe06a0f9347')" title="파일 다운로드">
+                            다운로드
+                        </a>
+                    
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                    <a href="/data/15070340/fileData.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_사망 교통사고 정보</span>
+                    </a>
+                
+                
+                
+            </div>
+        </div>
+        <div class="col-2dot4 recommend-mobile" id="recommend-data-2" data-pk="15070340" data-dpk="uddi:c0269355-bc0f-4a68-8cad-fbe06a0f9347" data-code="FILE">
+            <div class="tag-area mb-2">
+                
+                    <span class="tagset_file">파일데이터</span>
+                
+                
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                        <a href="javascript:void(0);" id="file_download" class="iconset ico-down black" onclick="fn_fileDataDown('15070340', 'uddi:c0269355-bc0f-4a68-8cad-fbe06a0f9347')" title="파일 다운로드">
+                            다운로드
+                        </a>
+                    
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                    <a href="/data/15070340/fileData.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_사망 교통사고 정보</span>
+                    </a>
+                
+                
+                
+            </div>
+        </div>
+    
+        <div class="col-2dot4 recommend-pc" id="recommend-data-3" data-pk="15075668" data-dpk="uddi:02b013c6-b580-4be8-bdf2-d9991b01bbf5" data-code="FILE">
+            <div class="tag-area mb-2">
+                
+                    <span class="tagset_file">파일데이터</span>
+                
+                
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                    
+                        <a href="javascript:void(0);" id="file_link" class="iconset ico-link black ml-2" onclick="fn_fileDataGoLink('15075668')" title="바로가기">
+                            바로가기
+                        </a>
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                    <a href="/data/15075668/fileData.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_교통사고 GIS정보</span>
+                    </a>
+                
+                
+                
+            </div>
+        </div>
+        <div class="col-2dot4 recommend-mobile" id="recommend-data-3" data-pk="15075668" data-dpk="uddi:02b013c6-b580-4be8-bdf2-d9991b01bbf5" data-code="FILE">
+            <div class="tag-area mb-2">
+                
+                    <span class="tagset_file">파일데이터</span>
+                
+                
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                    
+                        <a href="javascript:void(0);" id="file_link" class="iconset ico-link black ml-2" onclick="fn_fileDataGoLink('15075668')" title="바로가기" style="padding: ">
+                            바로가기
+                        </a>
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                    <a href="/data/15075668/fileData.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_교통사고 GIS정보</span>
+                    </a>
+                
+                
+                
+            </div>
+        </div>
+    
+        <div class="col-2dot4 recommend-pc" id="recommend-data-4" data-pk="15094168" data-dpk="uddi:d41b3118-260a-49d2-b140-c823e3eddb94" data-code="FILE">
+            <div class="tag-area mb-2">
+                
+                    <span class="tagset_file">파일데이터</span>
+                
+                
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                        <a href="javascript:void(0);" id="file_download" class="iconset ico-down black" onclick="fn_fileDataDown('15094168', 'uddi:d41b3118-260a-49d2-b140-c823e3eddb94')" title="파일 다운로드">
+                            다운로드
+                        </a>
+                    
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                    <a href="/data/15094168/fileData.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_부문별_사망_교통사고</span>
+                    </a>
+                
+                
+                
+            </div>
+        </div>
+        <div class="col-2dot4 recommend-mobile" id="recommend-data-4" data-pk="15094168" data-dpk="uddi:d41b3118-260a-49d2-b140-c823e3eddb94" data-code="FILE">
+            <div class="tag-area mb-2">
+                
+                    <span class="tagset_file">파일데이터</span>
+                
+                
+                
+                <div class="bottom-area" style="display: inline; float: right;">
+                    
+                    
+                        <a href="javascript:void(0);" id="file_download" class="iconset ico-down black" onclick="fn_fileDataDown('15094168', 'uddi:d41b3118-260a-49d2-b140-c823e3eddb94')" title="파일 다운로드">
+                            다운로드
+                        </a>
+                    
+                    
+                    
+                </div>
+            </div>
+            <div>
+                
+                    <a href="/data/15094168/fileData.do?recommendDataYn=Y" style="text-decoration: none;">
+                                <span class="title" style="color: #333; font-size: 16px;">도로교통공단_부문별_사망_교통사고</span>
+                    </a>
+                
+                
+                
+            </div>
+        </div>
+    
+</div>
+
+
+<script>
+
+    var fn_download = function () {
+        var rd_list = [];
+        for (var i = 0; i < 5; i++) {
+            var self = $("#recommend-data-" + i);
+
+            var tyCode = self.data("code");
+            var publicDataPk = self.data("pk");
+            var publicDataDetailPk = self.data("dpk");
+
+            rd_list.push({
+                tyCode: tyCode,
+                publicDataPk: publicDataPk,
+                publicDataDetailPk: publicDataDetailPk
+            });
+        }
+
+        console.log("click");
+        console.log(rd_list);
+        for (var i = 0; i < 5; i++) {
+            var self = rd_list[i];
+
+            console.log(self);
+
+            if (self.tyCode == 'API')
+                continue;
+            else if (self.tyCode == 'FILE') {
+                fn_fileDataDown(self.publicDataPk, self.publicDataDetailPk);
+            }
+            else if (self.tyCode == 'STD') {
+                window.open(
+                    "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+                    '_blank');
+                // window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+            }
+        }
+    }
+
+    var fn_fileDataDown = function(publicDataPk, publicDataDetailPk) {
+
+        $.ajax({
+            url		: "/tcs/dss/selectFileDataDownload.do?recommendDataYn=Y",
+            data	: { "publicDataPk"	: publicDataPk,
+                        "publicDataDetailPk"	: publicDataDetailPk },
+            success	: function(data) {
+                var jsonObj = JSON.parse(data);
+
+                if (jsonObj.status === true) {
+                    fn_fileDataDownload(jsonObj.atchFileId, jsonObj.fileDetailSn, jsonObj.dataSetFileDetailInfo.dataNm);
+                } else {
+                    alert("파일 다운로드에 실패했습니다.");
+                }
+            }
+        })
+    }
+
+    var fn_fileDataGoLink = function(publicDataPk) {
+
+        $.ajax({
+            url		: "/tcs/dss/selectLinkUrl.do",
+            data	: {"publicDataPk"	: publicDataPk},
+            success	: function(data) {
+                var jsonObj	= JSON.parse(data);
+
+                if (jsonObj.status === true) {
+                    var openNewWindow = window.open("about:blank");
+
+                    openNewWindow.location.href = jsonObj.linkUrl;
+                } else {
+                    alert(jsonObj.errorDc);
+                }
+            }
+        })
+    }
+
+    var fn_LinkApiRequest = function(publicDataDetailPk) {
+
+        $.ajax({
+            url: "/tcs/dss/addApiLinkPrcuse.do",
+            type: "POST",
+            data	: {"param"	: publicDataDetailPk},
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
+</script>
+        </div>
+
+    </div>
+    
+
+
+
+
+
+
+ 
+<div id="layer-api-guide" class="modal large">
+    <p class="layer-title">Open API 명세 확인 가이드</p>
+    <div class="layer-contents">
+        <div class="layer-api-guide-img">
+
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_Guide_01.png" alt="swagger guide">
+                    <div class="numbertext">1 / 13</div>
+                </div>
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_Guide_02.png" alt="swagger guide2" style="width:100%">
+                    <div class="numbertext">2 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_Guide_03.png" alt="swagger guide3" style="width:100%">
+                    <div class="numbertext">3 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_Guide_04.png" alt="swagger guide4" style="width:100%">
+                    <div class="numbertext">4 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_01.png" alt="swagger execute api 01">
+                    <div class="numbertext">5 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_02.png" alt="swagger execute api 02" style="width:100%">
+                    <div class="numbertext">6 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_03.png" alt="swagger execute api 03" style="width:100%">
+                    <div class="numbertext">7 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_04.png" alt="swagger execute api 04" style="width:100%">
+                    <div class="numbertext">8 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_05.png" alt="swagger execute api 05" style="width:100%">
+                    <div class="numbertext">9 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_06.png" alt="swagger execute api 06" style="width:100%">
+                    <div class="numbertext">10 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_07.png" alt="swagger execute api 07" style="width:100%">
+                    <div class="numbertext">11 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_08.png"  alt="swagger execute api 08" style="width:100%">
+                    <div class="numbertext">12 / 13</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/images/biz/swagger-guide/swagger_execute_api_09.png" alt="swagger execute api 09" style="width:100%">
+                    <div class="numbertext">13 / 13</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <a class="next" onclick="plusSlides(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.12.1/swagger-ui.css">
+<script src="https://kit.fontawesome.com/f288075850.js" crossorigin="anonymous"></script>
+<script src="/js/swagger-ui/swagger-ui-manager.js"></script>
+<script>
+
+
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+</script>
+
+
+
+
+<script>
+
+    $(function () {
+        if (window.innerWidth <= 1024) {
+            $(".recommend-pc").css('display', 'none');
+            $(".recommend-mobile").css('display', 'block');
+        } else {
+            $(".recommend-pc").css('display', 'block');
+            $(".recommend-mobile").css('display', 'none');
+        }
+    });
+
+    var fn_selectPrcuseList = function (pageIndex) {
+        loadingStart("contents");
+
+        $.ajax({
+            "url": "/tcs/dss/selectPrcuseExamList.do",
+            "data": {
+                "publicDataDetailPk": $("#publicDataDetailPk").val(),
+                "pageIndex": fn_empty(pageIndex) ? 1 : pageIndex
+            },
+            "success": function (data) {
+                var $target = $("#tab_layer_prcuse_exam");
+                $target.children().remove();
+                $target.append(data);
+                loadingStop("contents");
+            }
+        })
+    }
+    var fn_LinkApiRequest = function (publicDataDetailPk) {
+
+        $.ajax({
+            url: "/tcs/dss/addApiLinkPrcuse.do",
+            type: "POST",
+            data: {"param": publicDataDetailPk},
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+    var fn_listCsvDownload = function (filename) {
+        $.ajax({
+            url: "/assets/csvs/" + filename + ".csv",
+            contentType: 'text/csv',
+            success: function (data) {
+                saveAs(data, filename);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+</script>
+    </div>
+    <div class="file-meta-table-mobile" style="display: none;">
+        
+
+
+
+
+
+
+ <h3 class="tit">
+	<div class="dataset-openapi-info">
+		<div>
+			OpenAPI 정보
+			<div class="dropdown ml-2">
+				<button class="button h36 dropbtn">
+					<i class="fa fa-tags"></i> 메타데이터 다운로드
+				</button>
+				<div class="dropdown-content">
+					<a href="/catalog/15059126/openapi.json" target="_blank">schema.org</a>
+					<a href="/dcat/metadata/15059126" target="_blank">DCAT</a>
+				</div>
+			</div>
+		</div>
+		<div style="display: none">
+			<a href="/assets/csvs/목록개방리스트.csv" id="test1" class="list-csv-download" onclick="fn_listCsvDownload('목록개방리스트')">목록개방리스트</a>
+			<a href="/assets/csvs/파일데이터개방리스트.csv" id="test2" class="list-csv-download" onclick="fn_listCsvDownload('파일데이터개방리스트')">파일데이터개방리스트</a>
+			<a href="/assets/csvs/API개방리스트.csv" id="test3" class="list-csv-download" onclick="fn_listCsvDownload('API개방리스트')">API개방리스트</a>
+		</div>
+	</div>
+</h3>
+
+<table class="dataset-table">
+    <caption>도로교통공단_사망교통사고정보서비스로 오픈 API 정보 표로 분류체계, 제공기관 등 정보를 나타냄</caption>
+	<tr class="bg-beige tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">분류체계</th>
+		<td class="td custom-cell-border-bottom">공공질서및안전 - 안전관리</td>
+	</tr>
+	<tr class="bg-beige tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">제공기관</th>
+		<td class="td custom-cell-border-bottom">도로교통공단</td>
+	</tr>
+	<tr class="bg-beige tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">관리부서명</th>
+		<td class="td custom-cell-border-bottom">데이터융합처</td>
+	</tr>
+	<tr class="bg-beige tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">관리부서 전화번호</th>
+		<td class="td custom-cell-border-bottom"><strong><div id="telNo"></div></strong>
+			<script>
+				var telNo = "0337495266";
+
+				if (telNo !== null && telNo !== "null" && telNo !== "nullnullnull") {
+					$("#telNo").text(telNo.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/,"$1-$2-$3"));
+				}
+			</script>
+		</td>
+	</tr>
+	
+	
+	
+	
+	
+	
+	<tr class="bg-skyblue tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">API 유형</th>
+		<td class="td custom-cell-border-bottom">REST</td>
+	</tr>
+	<tr class="bg-skyblue tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">데이터포맷</th>
+		<td class="td custom-cell-border-bottom">JSON</td>
+	</tr>
+	<tr class="bg-skyblue tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">활용신청</th>
+		<td class="td custom-cell-border-bottom">1301</td>
+	</tr>
+	<tr class="bg-skyblue tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">키워드</th>
+		<td class="td custom-cell-border-bottom">사망 교통사고,개별정보,위치좌표</td>
+	</tr>
+	
+	
+	
+	
+	
+	
+	<tr class="bg-skyblue tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">등록</th>
+		<td class="td custom-cell-border-bottom">2015-12-29</td>
+	</tr>
+	<tr class="bg-skyblue tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">수정</th>
+		<td class="td custom-cell-border-bottom">2022-07-19</td>
+	</tr>
+
+	
+	
+		<tr class="bg-skyblue tr">
+			<th class="th custom-cell-border-bottom custom-cell-border-right">심의유형</th>
+			<td class="td custom-cell-border-bottom" colspan="2">
+				개발단계 :
+				
+					자동승인
+					
+				
+				/ 운영단계 :
+				
+					자동승인
+					
+				
+			</td>
+		</tr>
+	
+	<tr class="bg-green tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">비용부과유무</th>
+		<td class="td custom-cell-border-bottom" colspan="2">무료</td>
+	</tr>
+	<tr class="bg-green tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">신청가능 트래픽</th>
+		<td class="td custom-cell-border-bottom">
+			
+				
+					10,000
+				
+				
+			
+			/ 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
+		</td>
+	</tr>
+	<tr class="bg-green tr">
+		<th class="th custom-cell-border-bottom custom-cell-border-right">이용허락범위</th>
+		<td class="td custom-cell-border-bottom" colspan="2"><div class="img-copyright">
+			
+
+
+
+
+
+
+ 
+	
+
+	
+
+	
+
+	
+
+	
+	
+	
+		<a href="/ugs/selectPortalPolicyView.do" target="_blank" title="새 창으로 공공데이터포털 정책 열기">
+   			이용허락범위 제한 없음
+   		</a>
+	
+
+		</div></td>
+	</tr>
+	<tr class="bg-green tr">
+		<th class="th custom-cell-border-right">참고문서</th>
+		<td class="td" colspan="2"><a href="javascript:void(0)" onclick="fn_fileDownload('FILE_000000002572823','1')" title="파일 다운">220714_기술문서_도로교통공단_사망교통사고정보.hwp</a></td>
+	</tr>
+</table>
+
+
+<div class="tab-wrap common-data-tab" style="margin-top: 20px">
+	<nav class="tab-list tab-layer col-3">
+		<ul>
+			<li class="on"><a href="#tab_layer_detail_function">상세기능</a></li>
+			<li><a href="#tab_layer_prcuse_exam" onclick="fn_selectPrcuseList()">활용사례</a></li>
+			<li><a href="#tab_layer_recommend_data">추천데이터</a></li>
+		</ul>
+	</nav>
+</div>			
+
+<div class="tab-wrap common-data-tab">
+	<!-- 그리드 tab -->
+	<div id="tab_layer_detail_function" class="tab-cont on">
+		
+			
+			
+				
+					<h3 class="tit">상세기능</h3>
+					<!-- open-api-detail -->
+					<div class="open-api-detail" id="apiDetailFunctionDiv">
+						<div class="open-api-detail-select">
+							<label for="open_api_detail_select">목록</label>
+
+							<select id="open_api_detail_select">
+								
+									<option value="25675">사망교통사고정보 Rest 조회</option>
+								
+									<option value="25676">사망교통사고정보 WMS 조회</option>
+								
+							</select>
+
+							<button type="button" class="button" onclick="apiObj.fn_selectApiDetailFunction()" title="조회하기">조회</button>
+						</div>
+						
+
+
+
+
+
+
+ 
+<!-- open-api-detail-result -->
+<div class="open-api-detail-result" id="open-api-detail-result">
+	<h4 class="tit">
+		
+			
+				사망교통사고정보 Rest 조회
+			
+			
+		
+	</h4>
+	
+<!-- 	<div class="cont"> -->
+
+<!-- 	</div> -->
+	
+	<div class="box-gray">
+		<ul class="dot-list">
+			<li>
+				<strong>활용승인 절차</strong>
+				개발단계 : 
+					
+						
+							자동승인
+							
+						
+						
+					
+				/ 운영단계 :
+					
+						
+							자동승인
+							
+						
+						
+					  
+			</li>
+			<li>
+				<strong>신청가능 트래픽</strong>
+					
+						
+							10,000
+						
+						
+					
+					/ 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
+			</li>
+			<li>
+				<strong>요청주소</strong>
+				
+					
+						http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath
+					
+					
+				
+			</li>
+			<li>
+				<strong>서비스URL</strong>
+				
+					
+						http://apis.data.go.kr/B552061/AccidentDeath</a>
+					
+					
+				
+			</li>
+		</ul>
+		
+		<div class="button-group a-r just-pc">
+			
+				
+					
+
+
+
+
+
+
+
+							<a href="javascript:void(0)" class="button" onclick="apiObj.fn_goApplyReq()" title="활용신청 바로가기"><i class="iconset ico-pencil"></i> 활용신청</a>
+
+
+				
+			
+		</div>
+
+	</div>
+	
+
+
+
+
+
+
+	
+		
+			<h4 class="tit">활용명세</h4>
+			<div id="api-swagger2"></div>
+		
+		
+	
+</div>
+<!--// open-api-detail-result -->
+	
+<script type="text/javascript">
+	var apiObj = {
+		
+		fn_selectSampleCode	: function(type) {
+			$(".sampleCodeType").removeClass("on");
+			$("#sampleCodeAreaDiv > ." + type).addClass("on");
+			
+			var dataObj		= {};
+			var paramList	= [];
+			
+			dataObj.publicDataDetailPk = $("#publicDataDetailPk").val();
+			dataObj.oprtinSeqNo = "25675";
+			
+				
+					dataObj.oprtinUrl = "http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath";
+				
+				
+			
+
+			dataObj.paramtrSe = "1";
+			dataObj.serviceKey = "";
+			dataObj.type = type;
+			
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "ServiceKey";
+					paramObj.paramtrKorNm = "인증키";
+					paramObj.paramtrDc = "공공데이터포털에서 발급받은 인증키";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "인증키(URL Encode)";
+					paramObj.paramtrSize = "100";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "searchYear";
+					paramObj.paramtrKorNm = "발생연도";
+					paramObj.paramtrDc = "조회하고자 하는 연도값 입력(값 없을시 공백리턴)";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "2014";
+					paramObj.paramtrSize = "7";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "siDo";
+					paramObj.paramtrKorNm = "시도코드";
+					paramObj.paramtrDc = "코드종류 코드값전체 공백시 전체 선택서울특별시 1100부산광역시 1200대전광역시 2500대구광역시 2200광주광역시 2400인천광역시 2300울산광역시 2600세종특별자치시 2700경기도 1300강원도 1400충청남도 1600충청북도 1500전라남도 1800전라북도 1700경상남도 2000경상북도 1900제주특별자치도 2100";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "1100";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "guGun";
+					paramObj.paramtrKorNm = "시군구코드";
+					paramObj.paramtrDc = "시도 코드종류 코드값서울특별시 강남구 1116 강동구 1117 강북구 1124 강서구 1111 관악구 1115 광진구 1123 구로구 1112 금천구 1125 노원구 1122 도봉구 1107 동대문구 1105 동작구 1114 마포구 1110 서대문구 1109 서초구 1119 성동구 1104 성북구 1106 송파구 1118 양천구 1120 영등포구 1113 용산구 1103 은평구 1108 종로구 1101 중구 1";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "1117";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "type";
+					paramObj.paramtrKorNm = "데이터유형";
+					paramObj.paramtrDc = "결과형식(xml/json)";
+					paramObj.paramtrDivision = "옵";
+					paramObj.paramtrBassValue = "xml";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "numOfRows";
+					paramObj.paramtrKorNm = "검색건수";
+					paramObj.paramtrDc = "검색건수";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "10";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+					var paramObj	= {};
+					paramObj.paramtrNm = "pageNo";
+					paramObj.paramtrKorNm = "페이지 번호";
+					paramObj.paramtrDc = "페이지 번호";
+					paramObj.paramtrDivision = "필";
+					paramObj.paramtrBassValue = "1";
+					paramObj.paramtrSize = "4";
+					paramList.push(paramObj);
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			
+			dataObj.paramList = JSON.stringify(paramList);
+			
+			$.ajax({
+				url		: "/tcs/dss/selectSampleCode.do",
+				method	: "post",
+				data	: dataObj,
+				
+				success	: function(data) {
+					var reformedData = data.replace(/\\/gi, "");
+					reformedData = reformedData.substr(0, reformedData.length -1);
+					reformedData = reformedData.substr(1, reformedData.length);
+					$("#sampleCodeArea").html(reformedData).show();
+				}
+			})
+		},
+		
+		fn_selectApiDetailFunction	: function() {
+			var dataObj = {};
+			
+			dataObj.oprtinSeqNo = $("#open_api_detail_select").val();
+			dataObj.publicDataDetailPk	= $("#publicDataDetailPk").val();
+			dataObj.publicDataPk	= $("#publicDataPk").val();
+			
+			// 국가 중점 표준데이터인 경우 피케이가 변경돼야함.
+// 			if ($("#natCoreDataSe").val() === "Y") {
+// 				dataObj.publicDataPk	= $("#stdPublicDataPk").val();
+// 			}
+			
+			$.ajax({
+				url		: "/tcs/dss/selectApiDetailFunction.do",
+				method	: "post",
+				data	: dataObj,
+				
+				success	: function(data) {
+					$("#open-api-detail-result").remove();
+					$("#apiDetailFunctionDiv").append(data);
+				}
+			})
+		},
+		
+		fn_goApplyReq				: function() {
+			var mberId = "";
+			
+			if (fn_empty(mberId)) {
+				
+				if (confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")) {
+					location.href = "/uim/login/loginView.do";
+					return;
+				} else {
+					return;
+				}
+			}
+			
+			location.href="/tcs/dss/redirectDevAcountRequestForm.do?publicDataPk=" + $("#publicDataPk").val();
+		}
+	}
+</script>
+					</div>
+				
+			
+		
+	</div>
+	<div id="tab_layer_prcuse_exam" class="tab-cont">
+		
+	</div>
+	<div id="tab_layer_recommend_data" class="tab-cont">
+		<div class="custom-row">
+			
+				<div class="col-2dot4">
+					<p class="tag-area">
+						
+						
+						
+							
+						
+						
+						<span class="tagset json">JSON+XML</span>
+						<span class="labelset brown">재난안전</span>
+					</p>
+					<dl class="custom-dl">
+						<dt>
+							
+							
+							
+								<a href="/data/15056770/openapi.do" style="text-decoration: none;">
+									<span class="title" style="color: #333; font-weight: bold; font-size: 16px;">도로교통공단_지자체별 대상사고통계정보 조회 서비스</span>
+								</a>
+							
+						</dt>
+					</dl>
+
+					<div class="info-data">
+						<p class="custom-p">
+							<span class="tit">수정일</span>
+							<span class="data">
+						
+						
+						2022-07-19
+					</span>
+						</p>
+					</div>
+				</div>
+			
+				<div class="col-2dot4">
+					<p class="tag-area">
+						
+						
+						
+							
+						
+						
+						<span class="tagset json">JSON+XML</span>
+						<span class="labelset brown">재난안전</span>
+					</p>
+					<dl class="custom-dl">
+						<dt>
+							
+							
+							
+								<a href="/data/15057467/openapi.do" style="text-decoration: none;">
+									<span class="title" style="color: #333; font-weight: bold; font-size: 16px;">도로교통공단_지자체별사고 다발지역정보 조회 서비스</span>
+								</a>
+							
+						</dt>
+					</dl>
+
+					<div class="info-data">
+						<p class="custom-p">
+							<span class="tit">수정일</span>
+							<span class="data">
+						
+						
+						2021-08-13
+					</span>
+						</p>
+					</div>
+				</div>
+			
+				<div class="col-2dot4">
+					<p class="tag-area">
+						
+						
+						
+							
+						
+						
+							<span class="tagset json">JSON + XML</span>
+						
+						<span class="tagset json">CSV</span>
+						<span class="labelset brown">재난안전</span>
+					</p>
+					<dl class="custom-dl">
+						<dt>
+							
+								<a href="/data/15070340/fileData.do" style="text-decoration: none;">
+									<span class="title" style="color: #333; font-weight: bold; font-size: 16px;">도로교통공단_사망 교통사고 정보</span>
+								</a>
+							
+							
+							
+						</dt>
+					</dl>
+
+					<div class="info-data">
+						<p class="custom-p">
+							<span class="tit">수정일</span>
+							<span class="data">
+						
+						
+						2022-07-19
+					</span>
+						</p>
+					</div>
+				</div>
+			
+				<div class="col-2dot4">
+					<p class="tag-area">
+						
+						
+						
+							
+						
+						
+						<span class="tagset json">XLS</span>
+						<span class="labelset brown">공공행정</span>
+					</p>
+					<dl class="custom-dl">
+						<dt>
+							
+								<a href="/data/15075668/fileData.do" style="text-decoration: none;">
+									<span class="title" style="color: #333; font-weight: bold; font-size: 16px;">도로교통공단_교통사고 GIS정보</span>
+								</a>
+							
+							
+							
+						</dt>
+					</dl>
+
+					<div class="info-data">
+						<p class="custom-p">
+							<span class="tit">수정일</span>
+							<span class="data">
+						
+						
+						2022-06-22
+					</span>
+						</p>
+					</div>
+				</div>
+			
+				<div class="col-2dot4">
+					<p class="tag-area">
+						
+						
+						
+							
+						
+						
+							<span class="tagset json">JSON + XML</span>
+						
+						<span class="tagset json">CSV</span>
+						<span class="labelset brown">교통물류</span>
+					</p>
+					<dl class="custom-dl">
+						<dt>
+							
+								<a href="/data/15094168/fileData.do" style="text-decoration: none;">
+									<span class="title" style="color: #333; font-weight: bold; font-size: 16px;">도로교통공단_부문별_사망_교통사고</span>
+								</a>
+							
+							
+							
+						</dt>
+					</dl>
+
+					<div class="info-data">
+						<p class="custom-p">
+							<span class="tit">수정일</span>
+							<span class="data">
+						
+						
+						2021-11-08
+					</span>
+						</p>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+<script>
+	$(function() {
+		if(window.innerWidth <= 1024) {
+			$(".recommend-pc").css('display', 'none');
+			$(".recommend-mobile").css('display', 'block');
+		} else {
+			$(".recommend-pc").css('display', 'block');
+			$(".recommend-mobile").css('display', 'none');
+		}
+	});
+
+	var fn_selectPrcuseList = function(pageIndex) {
+		loadingStart("contents");
+		
+		$.ajax({
+			"url"		: "/tcs/dss/selectPrcuseExamList.do",
+			"data"		: {"publicDataDetailPk" : $("#publicDataDetailPk").val(),
+							"pageIndex"			: fn_empty(pageIndex) ? 1 : pageIndex},
+			"success"	: function(data) {
+				var $target = $("#tab_layer_prcuse_exam");
+				$target.children().remove();
+				$target.append(data);
+				loadingStop("contents");
+			}
+		})
+	}
+	var fn_LinkApiRequest = function(publicDataDetailPk) {
+
+		$.ajax({
+			url: "/tcs/dss/addApiLinkPrcuse.do",
+			type: "POST",
+			data	: {"param"	: publicDataDetailPk},
+			error: function(err) {
+				console.log(err);
+			}
+		});
+	}
+
+	var fn_listCsvDownload = function (filename) {
+		$.ajax({
+			url: "/assets/csvs/"+filename+".csv",
+			contentType: 'text/csv',
+			success: function (data) {
+				saveAs(data, filename);
+			},
+			error: function (err) {
+				console.log(err);
+			}
+		});
+	}
+</script>
+    </div>
+
+    
+
+
+
+
+    
+    
+
+
+
+
+
+
+ 
+<!-- reply-write -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--// reply-write -->
+
+<!-- reply-list -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--// reply-list -->
+
+<script type="text/javascript">
+	
+	var cmmnDataSetDetailObj = {
+		loginId	: "",
+		evlId	: "",
+		
+		fn_evlDcDelete		: function(seqNo) {
+			
+			if (!cmmnDataSetDetailObj.fn_loginChk()) {
+				return;
+			}
+			
+			var dataObj = {  "publicDataDetailPk"	: $("#publicDataDetailPk").val()
+					  	   , "publicDataPk"			: $("#publicDataPk").val()
+					  	   , "url"					: "/tcs/dss/saveEvaluationOpinion.do"
+					   	   , "saveTy"				: "delete"
+					   	   , "seqNo"				: seqNo};
+			
+			cmmnDataSetDetailObj.evlId = "evl" + seqNo;
+			cmmnDataSetDetailObj.fn_ajaxCmmn(dataObj, cmmnDataSetDetailObj.fn_evlDcDeleteCallback);
+		},
+		
+		fn_evlDcDeleteCallback		: function(data) {
+			var jsonObj	 = JSON.parse(data);
+			
+			if (jsonObj.status === true) {
+				alert("삭제에 성공했습니다.");
+				
+				$("#" + cmmnDataSetDetailObj.evlId).remove();
+				
+			} else {
+				alert("삭제에 실패했습니다.");
+			}
+		},
+		
+		fn_saveEvaluationOpinion	: function(se) {
+			
+			if (!cmmnDataSetDetailObj.fn_loginChk()) {
+				return;
+			}
+			
+			var dataObj = {  "publicDataDetailPk"	: $("#publicDataDetailPk").val()
+						   , "publicDataPk"			: $("#publicDataPk").val()
+						   , "url"					: "/tcs/dss/saveEvaluationOpinion.do"
+						   , "saveTy"				: "insert"};
+			
+			if (se === "evaluation") {
+				var size = 0;
+				
+				$(".btn-score-star").each(function() {
+					var $this = $(this);
+					
+					if ($this.hasClass("on")) {
+						size++;
+					}
+				})
+				
+				if (size < 1) {
+					alert("별점을 선택하여 주십시오.");
+					return;
+				}
+				
+				dataObj.evlScore = size;
+				dataObj.gubun = "score";
+				cmmnDataSetDetailObj.fn_ajaxCmmn(dataObj, cmmnDataSetDetailObj.fn_evaluationCallback);
+			} else if (se === "opinion") {
+				var opinion = $("#opinionTextArea").val();
+				
+				if (opinion === null || opinion === "" || opinion === undefined) {
+					alert("의견은 필수 입력 값입니다.");
+					return;
+				}
+				
+				dataObj.evlDc = opinion;
+				dataObj.gubun = "dc";
+				cmmnDataSetDetailObj.fn_ajaxCmmn(dataObj, cmmnDataSetDetailObj.fn_opinionCallback);
+			}
+		},
+		
+		fn_ajaxCmmn	: function(dataObj, successCallback) {
+
+			$.ajax({
+				url		: dataObj.url,
+				method	: "post",
+				data	: dataObj,
+				
+				success	: successCallback,
+				error	: function(data) {
+					alert("에러가 발생했습니다.");
+				}
+			})
+		},
+		
+		fn_evaluationCallback	: function(data) {
+			var jsonObj = JSON.parse(data);
+			
+			if (jsonObj.status === true) {
+				alert("저장에 성공했습니다.");
+				
+				var $evlScoreArea = $("#evlScoreArea");
+				$evlScoreArea.text(jsonObj.evlScoreAvg);
+				
+				var html = '<p class="like-done">이미 평가한 데이터입니다.</p>' 
+				$evlScoreArea.after(html);
+				
+				$("#evlScoreFrm").remove();
+				
+				// 기존 스코어 제거
+				if ($evlScoreArea.hasClass("score00")) {
+					$evlScoreArea.removeClass("score00");
+				} else if ($evlScoreArea.hasClass("score10")) {
+					$evlScoreArea.removeClass("score10");
+				} else if ($evlScoreArea.hasClass("score20")) {
+					$evlScoreArea.removeClass("score20");
+				} else if ($evlScoreArea.hasClass("score30")) {
+					$evlScoreArea.removeClass("score30");
+				} else if ($evlScoreArea.hasClass("score40")) {
+					$evlScoreArea.removeClass("score40");
+				} else if ($evlScoreArea.hasClass("score50")) {
+					$evlScoreArea.removeClass("score50");
+				}
+				
+				$evlScoreArea.addClass("score" + jsonObj.evlScoreAvg + "0");
+			} else {
+				alert("저장에 실패했습니다.");
+			}
+		},
+		
+		fn_opinionCallback	: function(data) {
+			var jsonObj = JSON.parse(data);
+			
+			if (jsonObj.status === true) {
+				alert("저장에 성공했습니다.");
+				
+				var html = '<li id="evl' + jsonObj.evlDcInfo.seqNo + '">'
+								+ '<div class="info">'
+									+ '<p class="user-id">' + jsonObj.evlDcInfo.registerId + '</p>'
+									+ '<p class="date">' + jsonObj.evlDcInfo.registDt + '</p>'
+									+ '<button type="button" class="btn" onclick="cmmnDataSetDetailObj.fn_evlDcDelete(' + jsonObj.evlDcInfo.seqNo + ')">삭제<i class="iconset ico-x"></i></button>'
+								+ '</div>'
+								+ '<div class="cont">' + jsonObj.evlDcInfo.evlDc + '</div>'
+							+ '</li>'
+				
+				$("#evlDcList").append(html);			
+							
+			} else {
+				alert("저장에 실패했습니다.");
+			}
+		},
+		
+		fn_attentionCallback	: function(data) {
+			var jsonObj = JSON.parse(data);
+			
+			if (jsonObj.status === true) {
+                alert("관심데이터로 등록되었습니다.");
+                location.reload();
+			} else {
+			    alert("관심데이터 저장에 실패했습니다.");
+            }
+		},
+		
+		fn_attention	: function(type) {
+			
+			if (!cmmnDataSetDetailObj.fn_loginChk()) {
+				return;
+			}
+			
+			var dataObj = {  "publicDataDetailPk"	: $("#publicDataDetailPk").val()
+					  	   , "publicDataPk"			: $("#publicDataPk").val()
+					   	   , "publicDataTy"			: type
+					   	   , "saveTy"				: "insert"};
+			
+			dataObj.url = "/tcs/dss/saveAttention.do";
+			cmmnDataSetDetailObj.fn_ajaxCmmn(dataObj, cmmnDataSetDetailObj.fn_attentionCallback);
+		},
+		
+		fn_loginChk		: function() {
+			
+			if (cmmnDataSetDetailObj.loginId === "" || cmmnDataSetDetailObj.loginId === null || cmmnDataSetDetailObj.loginId === undefined) {
+				
+				if (confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")) {
+					location.href = "/uim/login/loginView.do";
+					return;
+				} else {
+					return;
+				}
+			} else {
+				return true;
+			}
+		},
+		
+		fn_saveLike		: function() {
+			
+			if (!cmmnDataSetDetailObj.fn_loginChk()) {
+				return;
+			}
+			
+			var likeYn = $("#likeBtn").hasClass("on") ? "N" : "Y";
+			
+			var dataObj = {
+				"likeYn"		: likeYn,
+				"publicDataPk"	: $("#publicDataPk").val(),
+				"url"			: "/tcs/dss/saveLike.do"
+			}
+			
+			cmmnDataSetDetailObj.fn_ajaxCmmn(dataObj, cmmnDataSetDetailObj.fn_saveLikeCallback);
+		},
+
+        fn_saveHate         : function() {
+            if (!cmmnDataSetDetailObj.fn_loginChk()) {
+                return;
+            }
+
+            var hateYn = $("#hateBtn").hasClass("on") ? "N" : "Y";
+
+            var dataObj = {
+                "hateYn"		: hateYn,
+                "publicDataPk"	: $("#publicDataPk").val(),
+                "url"			: "/tcs/dss/saveHate.do"
+            }
+
+            cmmnDataSetDetailObj.fn_ajaxCmmn(dataObj, cmmnDataSetDetailObj.fn_saveHateCallback);
+        },
+		
+		fn_saveLikeCallback	: function(data) {
+			var jsonObj = JSON.parse(data);
+			
+			if (jsonObj.status === true) {
+				var $likeBtn = $("#likeBtn");
+				
+				if (jsonObj.likeYn === "Y") {
+					$likeBtn.addClass("on");
+				} else {
+					$likeBtn.removeClass("on");
+				}
+				
+				$("#likeCnt").text(jsonObj.likeCnt);
+			} else {
+				alert("좋아요 저장에 실패했습니다.");
+			}
+		},
+
+        fn_saveHateCallback	: function(data) {
+            var jsonObj = JSON.parse(data);
+
+            if (jsonObj.status === true) {
+                var $hateBtn = $("#hateBtn");
+
+                if (jsonObj.hateYn === "Y") {
+                    $hateBtn.addClass("on");
+                } else {
+                    $hateBtn.removeClass("on");
+                }
+
+                $("#hateCnt").text(jsonObj.hateCnt);
+            } else {
+                alert("싫어요 저장에 실패했습니다.");
+            }
+        },
+
+        fn_attentionUpdate : function() {
+
+            if (!cmmnDataSetDetailObj.fn_loginChk()) {
+                return;
+            }
+
+            var param = [];
+            var dataObj = {
+                            "publicDataDetailPk"	: $("#publicDataDetailPk").val()
+                            , "publicDataPk"		: $("#publicDataPk").val()
+                            , "deleteAt"            : "Y"
+                          }
+            param.push(dataObj);
+
+            $.ajax({
+                type:"POST",
+                url: '/iim/dps/idm/updateInterestData.json',
+                data : { j_updateDataArray : JSON.stringify(param) } ,
+                dataType : "json",
+                success: function(result){
+                    if(result.status){
+                        alert("관심데이터에서 취소 되었습니다.");
+                        location.reload();
+                    }else{
+                        alert("{0} 처리에 실패하였습니다.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert("{0} 처리에 실패하였습니다.");
+                }
+            });
+        }
+	}
+	
+</script>
+
+    
+
+    <div class="button-group a-c">
+        <form method="post" action="/tcs/dss/selectDataSetList.do" id="listFrm">
+            
+                
+            
+            
+        </form>
+        <a href="javascript:void(0)" class="button" onclick="fn_list()" title="목록으로 바로가기">목록</a>
+    </div>
+</div>
+<!--// data-search-view -->
+
+
+<script type="text/javascript">
+    $(function () {
+        if (window.innerWidth <= 1024) {
+            $(".file-meta-table-pc").css('display', 'none');
+            $(".file-meta-table-mobile").css('display', 'block');
+            $(".recommend-pc").css('display', 'none');
+            $(".recommend-mobile").css('display', 'block');
+        } else {
+            $(".file-meta-table-pc").css('display', 'block');
+            $(".file-meta-table-mobile").css('display', 'none');
+            $(".recommend-pc").css('display', 'block');
+            $(".recommend-mobile").css('display', 'none');
+        }
+
+        var width = $(window).width();
+        $(window).on('resize', function () {
+            if ($(this).width() !== width) {
+                width = $(this).width();
+                if (width > 1024) {
+                    $(".file-meta-table-pc").css('display', 'block');
+                    $(".file-meta-table-mobile").css('display', 'none');
+                    $(".file-meta-table-pc").css('display', 'block');
+                    $(".file-meta-table-mobile").css('display', 'none');
+                } else {
+                    $(".file-meta-table-pc").css('display', 'none');
+                    $(".file-meta-table-mobile").css('display', 'block');
+                    $(".file-meta-table-pc").css('display', 'none');
+                    $(".file-meta-table-mobile").css('display', 'block');
+                }
+            }
+        });
+    });
+
+    var fn_selectApiDetailFunction = function () {
+        var dataObj = {};
+
+        dataObj.oprtinSeqNo = $("#open_api_detail_select").val();
+        dataObj.publicDataDetailPk = $("#publicDataDetailPk").val();
+
+        $.ajax({
+            url: "/tcs/dss/selectApiDetailFunction.do",
+            method: "post",
+            data: dataObj,
+
+            success: function (data) {
+                $("#open-api-detail-result").remove();
+                $("#apiDetailFunctionDiv").append(data);
+            }
+        })
+    }
+
+    var fn_goOpenAPIRequestForm = function (publicDataPk) {
+
+        var loginId = "";
+        var mberTy = "";
+        var isCorpApi = "N";
+
+        if (fn_empty(loginId)) {
+
+            if (confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")) {
+                location.href = "/uim/login/loginView.do";
+                return;
+            } else {
+                return;
+            }
+        }
+
+        $.ajax({
+            url: "/uim/cmm/selectMberInfo.json",
+            type: "POST",
+            data: {"mberId": loginId},
+            dataType: "json",
+            success: function (result) {
+                mberTy = result.loginVO.mberTy;
+
+                //개인회원일 경우 기업회원 활용신청 불가 및 기업회원 전환 진행
+                if (isCorpApi == "Y" && mberTy == "MBTY01") {
+                    alert("기업회원이 아닐 경우 해당 API 활용신청이 불가능합니다.");
+                    if (confirm("기업회원 가입을 진행하시겠습니까?")) {
+                        location.href = "/iim/miu/corpInsertView.do";
+                    }
+                    return;
+                }
+
+                fn_setCookie("currentMyMenuId", "M020105", 1);
+                window.open("/tcs/dss/redirectDevAcountRequestForm.do?publicDataPk=" + publicDataPk, '_blank');
+                $(".recommend-after-download").slideDown();
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+
+    }
+
+    var fn_urlCopy = function () {
+        var t = document.createElement("textarea");
+        document.body.appendChild(t);
+        t.value = window.location.href;
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+
+        alert("URL이 복사되었습니다.");
+    }
+
+    /**
+     * 페이스북 공유하기 위한 param값 설정
+     */
+    function fn_SetParamSns(ty) {
+
+        //게시물의 key값 이름
+        var key = new Array();
+        //게시물의 key값 value
+        var value = new Array();
+        var originIdVal = $("#publicDataPk").val();
+
+        key.push("publicDataPk");
+        value.push(originIdVal);
+        //공통함수 호출
+        fn_ShareSns(key, value, ty);
+    }
+
+    var fn_list = function () {
+        // history.back();
+        var recmYn = "";
+
+        if (recmYn === "Y") {
+            $("#listFrm").attr("action", "/tcs/dss/recommendDataList.do");
+        }
+
+        $("#listFrm").submit();
+    }
+
+    $(function () {
+        var orgSearch = "";
+
+        if (!fn_empty(orgSearch)) {
+            $("#header").hide();
+            $("#footer").hide();
+            $(".orgSearch").hide();
+        }
+    })
+
+    //2021-01-08 링크 API일 경우 바로가기 버튼 클릭시 활용신청 INSERT(NIA 요청사항)
+    var fn_LinkApiRequest = function (publicDataDetailPk) {
+
+        $.ajax({
+            url: "/tcs/dss/addApiLinkPrcuse.do",
+            type: "POST",
+            data: {"param": publicDataDetailPk},
+            error: function (err) {
+                console.log(err);
+            }
+        });
+        $(".recommend-after-download").slideDown();
+    }
+
+</script>
+<script>
+    $(function () {
+        var swaggerManager = new SwaggerManager({
+            "browserAgnet": navigator.userAgent.toLowerCase(),
+            "swaggerJson": `{"swagger":"2.0","info":{"description":"사망 교통사고에 대한 개별 정보를 제공(위치 데이터 포함)","version":"1.0.0","title":"도로교통공단_사망교통사고정보서비스"},"host":"undefined/","basePath":"","schemes":["https","http"],"paths":{},"definitions":{},"swaggerOprtinVOs":[]}`
+        });
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+			
+			<aside class="quick-area">
+				<a href="#top" class="btn-go-top" title="맨 위로 가기">상단가기</a>
+			</aside>
+			
+			
+
+
+
+
+
+
+ <!-- footer -->
+<footer id="footer" tabIndex="-1">
+	<div class="inner-wrap">
+		<div class="footer-util">
+			<div class="tel">
+				<i class="iconset ico-tel"></i> <strong>공공데이터 개방문의</strong> <a title="바로 전화 걸기" href="tel:1566-0025">1566-0025</a>
+			</div>
+			
+			<div class="email">
+				<a title="이메일 바로가기" href="mailto:opendata_help@nia.or.kr"><i class="iconset ico-email"></i> 운영자 메일상담</a>
+			</div>
+			
+			<div class="sns-share">
+
+				<a href="http://www.facebook.com/koreadataportal" target="_blank" title="새창 열림">
+					<i class="iconset ico-facebook">페이스북 공유</i>
+				</a>
+				<a href="https://twitter.com/koreadataportal" target="_blank" title="새창 열림">
+					<i class="iconset ico-twitter">트위터 공유</i>
+				</a>
+				<a href="http://blog.naver.com/nia_korea" target="_blank" title="새창 열림">
+					<i class="iconset ico-blog">블로그 공유</i>
+				</a>
+			</div>
+			<!-- 2020-02-19 뉴스레터 신청 레이어 팝업 -->
+			<div id="layer_newsletter_request" class="modal medium">
+				<p class="layer-title">뉴스레터 신청</p>
+				<div class="layer-contents">
+					<div class="newsletter-request-box">
+						<label for="newsletter_request" class="title req">이메일주소</label>
+
+						<input type="text" id="newsletter_request" class="input-text" placeholder="sample@sample.com" style="ime-mode:disabled">
+
+						<p class="reset">
+							<input type="checkbox" id="check_agree" value="Y">
+							<label for="check_agree">수신동의</label>
+						</p>
+
+						<p class="reset">
+							* 수신 미동의 시 뉴스레터 신청 서비스에 제한이 있습니다.
+						</p>
+					</div>
+
+					청
+				</div>
+			</div>
+			<!-- // 2020-02-19 뉴스레터 신청 레이어 팝업 -->
+		</div>
+		
+		<div class="footer-link">
+			<ul class="list">
+				<li><a title="새 창으로 이용약관 열기" href="/ugs/selectPortalPolicyView.do#use_stplat" target="_blank">이용약관</a></li>
+				<li class="privacy"><a title="새 창으로 개인정보처리방침 열기" href="/ugs/selectPortalPolicyView.do#indvdlinfo_process" target="_blank">개인정보처리방침</a></li>
+				<li><a title="새 창으로 공공데이터포털 소개 열기" href="/ugs/selectPortalInfoView.do#portal_info" target="_blank">공공데이터포털 소개</a></li>
+				<li><a title="분쟁조정신청 바로가기" href="/tcs/dor/insertTrublMdatReqstProcssView.do">분쟁조정신청</a></li>
+			</ul>
+			<p class="txt">
+				개인정보분야별책임자 : 최시복
+			</p>
+			
+			<div class="site-select">
+				<select class="selectSiteList" title="관련사이트 선택">
+					<option value="http://www.gov.kr/">정부24</option>
+					<option value="http://www.mois.go.kr/">행정안전부</option>
+					<option value="http://www.odsc.go.kr/">공공데이터전략위원회</option>
+					<option value="http://www.odmc.or.kr/">공공데이터제공분쟁조정위원회</option>
+					<option value="http://www.opensquared.org/">오픈스퀘어-D</option>
+					<option value="http://odf.or.kr/">오픈데이터포럼</option>
+					<option value="https://www.open.go.kr/">대한민국 정보공개</option>
+					<option value="https://blog.naver.com/nia_korea/">공공데이터포털 블로그</option>
+					<option value="http://www.riss.kr/index.do">공공데이터 학술정보</option>
+					<option value="https://kosis.kr">KOSIS국가통계포털</option>
+				</select>
+				
+				<button type="button" title="새창 열림" class="btnGoSite button">이동</button>
+			</div>
+		</div>
+		
+		<div class="footer-info">
+			<div class="logo">
+				<a href="https://www.mois.go.kr/" target="_blank" title="새창 열림"><img src="/images/biz/common/logo/logo-footer-01.png" alt="행정안전부" /></a>
+
+			</div>
+			
+			<div class="address">
+				<div>
+					<p>(30116) 세종특별자치시 한누리대로 411(어진동, 행정안전부 별관) </p>
+					<p class="tel">대표번호 : <a title="바로 전화 걸기" href="tel:1566-0025">1566-0025</a></p>
+					<p>문의시간 : 09:00~18:00 (월~금)</p>
+
+				</div>
+				
+
+
+
+				
+				<div>
+					<p>ⓒ행정안전부. All rights reserved.</p>
+				</div>
+			</div>
+			
+
+
+
+
+		</div>
+	</div>
+</footer>
+
+<script type="text/javascript">
+
+	/*
+	 * 사이트 이동 버튼 클릭
+	*/
+	$(".btnGoSite").click( function(e) {
+		var url = $('.selectSiteList').val();
+		if(url != "#") {
+			var w = window.open( url, '_blank');
+			w.document.title = "새창";
+		}
+	});
+	
+	/*
+	 * 뉴스레터 신청
+	*/
+	function fn_saveNewsLetter(){
+		
+		//이메일 입력확인
+		if(fn_empty($("#newsletter_request").val())){
+			alert("이메일 주소는 필수입력 항목입니다.");
+			$("#newsletter_request").focus();
+	        return;
+		}
+		
+		//이메일 형식 확인
+		var regExp = fn_regExp("email");
+		if ( !regExp.test($("#newsletter_request").val()) ) {
+			alert("이메일주소를 올바르게 입력해주세요.");
+			$("#newsletter_request").focus();
+			return;
+		}
+		
+		if(fn_empty($("#check_agree").val()) || !$("#check_agree").is(":checked")){
+			alert("이메일 수신에 동의하셔야 뉴스레터를 신청하실 수 있습니다.");
+			$("#check_agree").focus();
+	        return;
+		}
+		
+		if(confirm("뉴스레터를 신청하시겠습니까?")){
+			$.ajax({
+				type:"POST",
+				url: '/insertNewsLetterUser.json',
+				data : {userEmail : $("#newsletter_request").val(), agreeYn : $("#check_agree").val()} ,
+				dataType : "json",
+				traditional : true,
+				success: function(result){
+					if(result.status){
+						if(result.duplUserAt){
+							alert("이미 뉴스레터 신청이 완료된 이메일주소를 입력하셨습니다.\n다른 이메일주소를 입력해주세요.");
+							return;
+						}else{
+							alert("뉴스레터 신청이 완료되었습니다.");
+							$("#newsletter_request").val("");
+							$("#check_agree").removeProp("checked");
+							$.modal.close();
+						}
+					}else{
+						alert("뉴스레터 신청 중 오류가 발생하였습니다.");
+						return;
+					}
+				},
+				error: function(xhr, status, error) {
+					alert("뉴스레터 신청 중 오류가 발생하였습니다.");
+					return;
+				}
+			});
+		}
+	}
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-48044318-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-48044318-2');
+</script>
+<!--// footer -->
+		</div>
+	</body>
+</html>

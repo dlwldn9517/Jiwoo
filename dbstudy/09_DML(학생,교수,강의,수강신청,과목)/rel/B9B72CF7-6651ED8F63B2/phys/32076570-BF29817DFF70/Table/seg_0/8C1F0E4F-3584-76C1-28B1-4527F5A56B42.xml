@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="PLAYER" directorySegmentName="seg_0" id="8C1F0E4F-3584-76C1-28B1-4527F5A56B42">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<schemaObject>FBBA1DA8-0ECE-4967-DEA0-A6F9DA2CAC7E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>E2277851-F3CE-CE3B-CB9C-0C4DD2F0CC88</segment>
+<tableSpace>33A27C7E-2BA2-04C4-AB5E-88012528F7F4</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="P_RANK" id="1798CCCE-347F-08C8-A40F-21B1A068FE05">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="P_CODE" id="365E56D1-96F3-5178-D272-DC156371EF75">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="E_CODE" id="50E25B94-8484-AC36-F624-B1E71D22DA17">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="P_AGE" id="8F598195-9927-40E9-A291-70184AEC0A19">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="N_CODE" id="BFCEC35E-847C-7253-100B-1B65E516C399">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="P_NAME" id="D54FF812-1B39-7AA3-466C-61F675386C20">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_PLAYER" id="C5372A70-4209-4023-F731-BA3CA44EA8EE">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<schemaObject>FBBA1DA8-0ECE-4967-DEA0-A6F9DA2CAC7E</schemaObject>
+<segment>212EF3AF-69CB-F24D-3C23-02F144FBD8A4</segment>
+<tableSpace>33A27C7E-2BA2-04C4-AB5E-88012528F7F4</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_PLAYER_EVENT" id="80E26D11-39DD-BDC7-3F43-F8F8B9B66FBC">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_PLAYER_NATION" id="B2ADEBCE-0D7E-F320-02BE-227C45B7D6C6">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_PLAYER" id="06299AAE-5FC3-DEFF-A914-B529EC9F8D89">
+<createdBy>GDJ54</createdBy>
+<createdTime>2022-08-25 01:49:41 UTC</createdTime>
+<ownerDesignName>09_DML(학생,교수,강의,수강신청,과목)</ownerDesignName>
+<segment>212EF3AF-69CB-F24D-3C23-02F144FBD8A4</segment>
+<tableSpace>33A27C7E-2BA2-04C4-AB5E-88012528F7F4</tableSpace>
+<existingIndex>C5372A70-4209-4023-F731-BA3CA44EA8EE</existingIndex>
+<indexSegment>212EF3AF-69CB-F24D-3C23-02F144FBD8A4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

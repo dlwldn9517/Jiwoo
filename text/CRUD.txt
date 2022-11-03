@@ -1,0 +1,30 @@
+상세 보기       →      편집 화면           →     수정
+       	 	   edit.do                     modify.do
+        	 	   selectBoardByNo         updateBoard()
+       	               BoardEditService         BoardModifyService
+
+목록보기
+
+list.do
+
+->
+
+BoardController
+
+case "list.do":
+     service = new BoardService();
+
+->
+
+BoardListService
+
+BoardDAO dao;
+List list = dao.selectAllBoards();
+request.setAttribute("boards", list); -- 포워드
+
+- > 
+
+BoardDAO
+
+context.xml 읽어서 DataSource
+select 쿼리문 실행(Connection, PreparedStatement, ResultSet)
