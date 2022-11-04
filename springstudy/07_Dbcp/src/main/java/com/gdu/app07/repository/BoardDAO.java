@@ -7,9 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
-import com.gdu.app06.domain.BoardDTO;
+import com.gdu.app07.domain.BoardDTO;
 
 
 /*
@@ -20,8 +18,8 @@ import com.gdu.app06.domain.BoardDTO;
 */
 
 
-@Repository  // DAO가 사용하는 @Component로 트랜잭션 기능이 추가되어 있어.
-
+// @Repository  // DAO가 사용하는 @Component로 트랜잭션 기능이 추가되어 있어.	(컨테이너에 BoardDAO를 등록시켜라 - 2곳 중 1곳에서만 설정하면 됨)
+// 여기서는 @Repository 사용 안함
 
 public class BoardDAO {
 

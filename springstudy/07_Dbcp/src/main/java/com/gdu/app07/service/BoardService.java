@@ -2,7 +2,7 @@ package com.gdu.app07.service;
 
 import java.util.List;
 
-import com.gdu.app06.domain.BoardDTO;
+import com.gdu.app07.domain.BoardDTO;
 
 public interface BoardService {
 	// 서비스 계층의 이름은 "사용자 친화적으로" 작성

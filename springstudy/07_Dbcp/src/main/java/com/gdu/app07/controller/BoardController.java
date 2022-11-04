@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.gdu.app06.domain.BoardDTO;
-import com.gdu.app06.service.BoardService;
+import com.gdu.app07.domain.BoardDTO;
+import com.gdu.app07.service.BoardService;
 
 @Controller
 public class BoardController {
