@@ -43,7 +43,7 @@ public class BoardDAO {
 			Context context = new InitialContext();
 			dataSource = (DataSource)context.lookup("java:comp/env/jdbc/oracle11g");
 			
-		} catch (Exception e) {
+		} catch (Exception e) {		// NamingException
 			e.printStackTrace();
 		}
 	}
@@ -68,7 +68,7 @@ public class BoardDAO {
 	public List<BoardDTO> selectAllBoards() {
 		List<BoardDTO> boards = new ArrayList<BoardDTO>();
 		try {
-			con = getConnection();
+			con = dataSource.getConnection();	// Connection Pool에서 Connection을 하나 얻어 온다.
 			sql = "SELECT BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE FROM BOARD ORDER BY BOARD_NO DESC";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -87,7 +87,7 @@ public class BoardDAO {
 	public BoardDTO selectBoardByNo(int board_no) {
 		BoardDTO board = null;
 		try {
-			con = getConnection();
+			con = dataSource.getConnection();
 			sql = "SELECT BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE FROM BOARD WHERE BOARD_NO = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, board_no);
@@ -106,7 +106,7 @@ public class BoardDAO {
 	public int insertBoard(BoardDTO board) {
 		int result = 0;
 		try {
-			con = getConnection();
+			con = dataSource.getConnection();
 			sql = "INSERT INTO BOARD(BOARD_NO, TITLE, CONTENT, WRITER, CREATE_DATE, MODIFY_DATE)"
 				+ " VALUES(BOARD_SEQ.NEXTVAL, ?, ?, ?, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), TO_CHAR(SYSDATE, 'YYYY-MM-DD'))";
 			ps = con.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class BoardDAO {
 	public int updateBoard(BoardDTO board) {
 		int result = 0;
 		try {
-			con = getConnection();
+			con = dataSource.getConnection();
 			sql = "UPDATE BOARD "
 				+ "SET TITLE = ?, CONTENT = ?, MODIFY_DATE = TO_CHAR(SYSDATE, 'YYYY-MM-DD') "
 				+ "WHERE BOARD_NO = ?";
@@ -145,7 +145,7 @@ public class BoardDAO {
 	public int deleteBoard(int board_no) {
 		int result = 0;
 		try {
-			con = getConnection();
+			con = dataSource.getConnection();
 			sql = "DELETE FROM BOARD WHERE BOARD_NO = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, board_no);
