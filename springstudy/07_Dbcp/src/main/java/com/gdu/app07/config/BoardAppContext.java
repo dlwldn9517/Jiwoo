@@ -19,6 +19,6 @@ public class BoardAppContext {
 	// 06_Jdbc의 @Service 대신 추가한 Bean
 	@Bean
 	public BoardService boardService() {
-		return new BoardServiceImpl();
+		return new BoardServiceImpl(dao());		// 문법의 오류를 맞추기 위해 직접 dao()를 주입했다.
 	}
 }

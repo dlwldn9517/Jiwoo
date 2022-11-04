@@ -3,17 +3,32 @@ package com.gdu.app07.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.stereotype.Service;
 
+import com.gdu.app07.config.BoardAppContext;
 import com.gdu.app07.domain.BoardDTO;
 import com.gdu.app07.repository.BoardDAO;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 
 public class BoardServiceImpl implements BoardService {
 
-	
-	// Service는 DAO를 사용합니다.
-	// @Autowired  // 컨테이너에 생성된 bean 중에서 BoardDAO 타입의 bean을 가져오시오.
 	private BoardDAO dao;
+	
+	// 생성자의 매개변수 BoardDAO dao로 new BoardDAO()가 주입되고 있다.
+	// BoardAppContext.java 참고
+	public BoardServiceImpl(BoardDAO dao) {	
+		super();
+		this.dao = dao;
+	}
+	
+	// 복습. 이러한 방법도 있다.
+	// AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(BoardAppContext.class);
+	// private BoardDAO dao = ctx.getBean("dao", BoardDAO.class);	// Bean의 이름(id) = 메소드명(ex. dao)
 	
 	
 	@Override
@@ -40,5 +55,7 @@ public class BoardServiceImpl implements BoardService {
 	public int removeBoard(int board_no) {
 		return dao.deleteBoard(board_no);
 	}
+
+	
 
 }

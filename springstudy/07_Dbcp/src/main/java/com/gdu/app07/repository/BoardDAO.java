@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import com.gdu.app07.domain.BoardDTO;
 
 
@@ -28,18 +32,22 @@ public class BoardDAO {
 	private ResultSet rs;
 	private String sql;
 	
-	// private 메소드
-	// 이 메소드는 BoardDAO에서만 사용한다.
-	private Connection getConnection() {
-		Connection con = null;
+	
+	// Connection Pool을 관리하는 DataSource
+	private DataSource dataSource;
+	
+	// BoardDAO가 생성되면, context.xml의 Resource를 읽어서 dataSource 객체를 만든다.
+	public BoardDAO() {
+		// JNDI : Resource의 name을 이용해서 읽어 들이는 방식
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "SCOTT", "TIGER");
-		} catch(Exception e) {
+			Context context = new InitialContext();
+			dataSource = (DataSource)context.lookup("java:comp/env/jdbc/oracle11g");
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return con;
 	}
+	
 	
 	// private 메소드
 	// 이 메소드는 BoardDAO에서만 사용한다.

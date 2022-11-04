@@ -10,15 +10,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.gdu.app07.domain.BoardDTO;
 import com.gdu.app07.service.BoardService;
 
+import lombok.AllArgsConstructor;
+
 @Controller
+
+// 필드를 이용한 생성자를 만들어두면, 생성자의 매개변수로 컨테이너의 Bean이 자동 주입(@Autowired)되므로
+// 필드에 @Autowired 처리할 필요가 없다.
+@AllArgsConstructor		// 생성자 떄문에 @Autowired가 없어도 정상작동 됨
 public class BoardController {
 	
 	
-	// Controller는 Service를 사용합니다.
-	@Autowired  // 컨테이너에 생성된 bean 중에서 BoardService 타입의 bean을 가져오시오.
+	// @Autowired가 없음에 주의!!
 	private BoardService boardService;
 	
-	
+	/*
+	public BoardController(BoardService boardService) {	// 생성자의 매개변수로 @Autowired가 자동으로 들어온다
+		super();
+		this.boardService = boardService;
+	}
+	*/
+
 	@GetMapping("/")
 	public String index() {
 		return "index";
