@@ -6,10 +6,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data	// getter + setter
+@Data
 public class BoardDTO {
-	
 	private int board_no;
 	private String title, content, writer, create_date, modify_date;
-	
 }
