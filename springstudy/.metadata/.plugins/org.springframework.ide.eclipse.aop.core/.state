@@ -73,5 +73,6 @@
 <aop-project name="06_Jdbc"/>
 <aop-project name="ContactProject"/>
 <aop-project name="01_Ioc_Container"/>
+<aop-project name="14_Pjt_Upload"/>
 <aop-project name="04_Request"/>
 </aop-reference-model>
