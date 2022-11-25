@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gdu.app15.mapper.BlogMapper">
+
+	<select id="selectBlogListCount" resultType="int">
+		SELECT COUNT(*)
+		  FROM BLOG
+	</select>
+	
+	<!-- 블로그를 가져갈 때 사용자 정보를 가져가야 함  join도 해야 하는데 동시에 다룰 수 있는 DTO가 없어서 MAP에 담는다. -->
+	<!-- 인라인 뷰 : SELECT A절을 사용한 것 -->
+	<select id="selectBlogListByMap" parameterType="map" resultType="BlogDTO"> <!-- 페이징처리 쿼리문  // 파리미터타입 map에는 begin과 end가 담겨야 함-->   
+		SELECT A.ROW_NUM, A.BLOG_NO, A.TITLE, A.CONTENT, A.HIT, A.IP, A.CREATE_DATE, A.MODIFY_DATE
+		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY BLOG_NO DESC) AS ROW_NUM, BLOG_NO, TITLE, CONTENT, HIT, IP, CREATE_DATE, MODIFY_DATE
+		  		  FROM BLOG) A 	    
+		 WHERE A.ROW_NUM BETWEEN #{begin} AND #{end} 		  
+	</select>
+	
+	<insert id="insertBlog" parameterType="BlogDTO">
+		INSERT INTO BLOG
+			(BLOG_NO, TITLE, CONTENT, HIT, IP, CREATE_DATE, MODIFY_DATE)
+		VALUES
+			(BLOG_SEQ.NEXTVAL, #{title}, #{content}, 0, #{ip}, SYSDATE, SYSDATE)
+	</insert>
+	
+	<!-- 상세보기 : 조회수 업데이트, 댓글 목록 가져가는 것 -->
+	<!-- 조회수 늘리기  -->
+	<update id="updateHit" parameterType="int">
+		UPDATE BLOG
+		   SET HIT = HIT + 1
+		 WHERE BLOG_NO = #{blogNo}
+	</update>
+	
+	<!-- 상세보기 -->
+	<select id="selectBlogByNo" parameterType="int" resultType="BlogDTO">
+		SELECT BLOG_NO, TITLE, CONTENT, HIT, IP, CREATE_DATE, MODIFY_DATE
+		  FROM BLOG
+		 WHERE BLOG_NO = #{blogNo}
+	</select>
+	
+	<update id="updateBlog" parameterType="BlogDTO">
+		UPDATE BLOG
+		   SET TITLE = #{title}, CONTENT = #{content}, MODIFY_DATE = SYSDATE
+		 WHERE BLOG_NO = #{blogNo}
+	</update>
+	
+	<delete id="deleteBlog" parameterType="int">
+		DELETE
+		  FROM BLOG
+		 WHERE BLOG_NO = #{blogNo}
+	</delete>
+	
+</mapper>
