@@ -129,10 +129,5 @@
   		  FROM SLEEP_USERS
   		 WHERE ID = #{id}
 	</delete>
-
-	
-	
-	
-	
 	
 </mapper>
