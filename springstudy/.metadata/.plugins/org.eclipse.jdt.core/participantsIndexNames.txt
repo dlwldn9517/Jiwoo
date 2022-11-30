@@ -31,6 +31,8 @@ C:\GDJ\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\9874650
 \05_Ajax\src\main\java
 C:\GDJ\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3210263852.index
 \09_Mybatis\src\main\java
+C:\GDJ\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\119650945.index
+\MyProject\src\main\java
 C:\GDJ\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\936921457.index
 \08_SpringJdbc_AOP\src\main\java
 C:\GDJ\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1550811925.index

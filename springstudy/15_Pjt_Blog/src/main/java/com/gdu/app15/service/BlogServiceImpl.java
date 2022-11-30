@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -19,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.gdu.app15.domain.BlogDTO;
+import com.gdu.app15.domain.SummernoteImageDTO;
 import com.gdu.app15.mapper.BlogMapper;
 import com.gdu.app15.util.MyFileUtil;
 import com.gdu.app15.util.PageUtil;
@@ -70,68 +70,17 @@ public class BlogServiceImpl implements BlogService {
 	}
 	
 	@Override
-	public void saveBlog(HttpServletRequest request, HttpServletResponse response) {
-		
-		// 파라미터 title, content
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		
-		// 작성자의 ip
-		// 작성된 내용이 어딘가를 경유해서 도착하면 원래 ip가 X-Forwarded-For라는 요청헤더에 저장된다.
-		
-		// 출발			  			도착
-		// 1.1.1.1					1.1.1.1 : request.getRemoteAddr()
-		//							null	: request.getHeader("X-Forwarded-For")
-		
-		// 출발			경유		도착
-		// 1.1.1.1		2.2.2.2		2.2.2.2 : request.getRemoteAddr()
-		//							1.1.1.1 : request.getHeader("X-Forwarded-For")
-		Optional<String> opt = Optional.ofNullable(request.getHeader("X-Forwarded-For"));	
-		String ip = opt.orElse(request.getRemoteAddr());	// 만약에 null이 나오면 request.getRemoteAddr()를 사용해라
-		
-		// DB로 보낼 BlogDTO
-		BlogDTO blog = BlogDTO.builder()
-				.title(title)
-				.content(content)
-				.ip(ip)
-				.build();
-		
-		// DB에 저장
-		int result = blogMapper.insertBlog(blog);
-		
-		// 응답
-		try {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			
-			out.println("<script>");
-			if(result > 0) {
-				out.println("alert('삽입 성공')");
-				out.println("location.href='" + request.getContextPath() + "/blog/list';");
-			} else {
-				out.println("alert('삽입 실패')");
-				out.println("history.back();");
-			}
-			out.println("</script>");
-			out.close();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	@Override
 	public Map<String, Object> saveSummernoteImage(MultipartHttpServletRequest multipartRequest) {
 
 		// 파라미터 file
 		// getParameter()는 String일 떄만 꺼내서 사용가능
 		MultipartFile multipartFile = multipartRequest.getFile("file");
 		
-		// 저장할 파일명
-		String filesystem = myFileUtil.getFilename(multipartFile.getOriginalFilename());	// 원본 파일명에서 확장자만 가져다쓰고 나머지는 랜덤값으로 변경해줌
-		
 		// 저장 경로
-		String path = "C:\\upload";
+		String path = "C:" + File.separator + "summernoteImage";
+				
+		// 저장할 파일명
+		String filesystem = myFileUtil.getFilename(multipartFile.getOriginalFilename());
 		
 		// 저장 경로가 없으면 만들기
 		File dir = new File(path);
@@ -151,11 +100,80 @@ public class BlogServiceImpl implements BlogService {
 
 		// 저장된 파일을 확인할 수 있는 매핑을 반환
 		Map<String, Object> map = new HashMap<String, Object>();	// 잭슨을 넣어놨기 떄문에 json으로 잘 바꿔줌
-		map.put("src", multipartRequest.getContextPath() + "/load/image/" + filesystem);
+		map.put("src", multipartRequest.getContextPath() + "/load/image/" + filesystem);  // 이미지 mapping값을 반환
+		map.put("filesystem", filesystem);  // HDD에 저장된 파일명 반환
 		return map;
 		
 		// 저장된 파일이 aaa.jpg라고 가정하면
 		// src=${contextPath}/load/image/aaa.jpg 이다
+	}
+	
+	@Transactional
+	@Override
+	public void saveBlog(HttpServletRequest request, HttpServletResponse response) {
+		
+		// 파라미터 title, content
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		
+		// 작성자의 ip
+		// 작성된 내용이 어딘가를 경유해서 도착하면 원래 ip가 X-Forwarded-For라는 요청헤더에 저장된다.
+		
+		// 출발                  도착
+		// 1.1.1.1               1.1.1.1 : request.getRemoteAddr()
+		//                       null    : request.getHeader("X-Forwarded-For")
+		
+		// 출발       경유       도착
+		// 1.1.1.1    2.2.2.2    2.2.2.2 : request.getRemoteAddr()
+		//                       1.1.1.1 : request.getHeader("X-Forwarded-For")
+		
+		Optional<String> opt = Optional.ofNullable(request.getHeader("X-Forwarded-For"));	
+		String ip = opt.orElse(request.getRemoteAddr());	// 만약에 null이 나오면 request.getRemoteAddr()를 사용해라
+		
+		// DB로 보낼 BlogDTO
+		BlogDTO blog = BlogDTO.builder()
+				.title(title)
+				.content(content)
+				.ip(ip)
+				.build();
+		
+		// DB에 Blog 저장
+		int result = blogMapper.insertBlog(blog);
+		
+		// 응답
+		try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>");
+			if(result > 0) {
+				
+				// 파라미터 summernoteImageNames
+				String[] summernoteImageNames = request.getParameterValues("summernoteImageNames");
+				
+				// DB에 SummernoteImage 저장
+				if(summernoteImageNames !=  null) {
+					for(String filesystem : summernoteImageNames) {
+						SummernoteImageDTO summernoteImage = SummernoteImageDTO.builder()
+								.blogNo(blog.getBlogNo())
+								.filesystem(filesystem)
+								.build();
+						blogMapper.insertSummernoteImage(summernoteImage);
+					}
+				}
+				out.println("alert('삽입 성공');");
+				out.println("location.href='" + request.getContextPath() + "/blog/list';");
+				
+			} else {
+				out.println("alert('삽입 실패')");
+				out.println("history.back();");
+			}
+			out.println("</script>");
+			out.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -165,9 +183,41 @@ public class BlogServiceImpl implements BlogService {
 	
 	@Override
 	public BlogDTO getBlogByNo(int blogNo) {
-		return blogMapper.selectBlogByNo(blogNo);
+		
+			// 블로그를 새로 등록하거나 수정할 때
+			// 써머노트에 이미지를 넣는 것은 ajax로 실시간 처리가 되지만,
+			// 써머노트에 넣은 이미지를 제거하는 것은 summernote에서 제공하는 처리 방법이 없다.
+			// 따라서, 써머노트에 이미지를 넣은 다음 이미지를 다시 제거해도 HDD에는 이미지가 그대로 남아 있다.
+			
+			// 실제로 써머노트에서 사용한 이미지는
+			// Blog의 content에 <img src="/app15/load/image/xxxxx.jpg"> 태그로 포함되어 있으므로
+			// 저장된 이미지 목록과 Blog의 content를 비교해서 일치하지 않는 이미지 파일은 지운다.
+			
+			
+			// DB에서 블로그 정보 가져오기
+			BlogDTO blog = blogMapper.selectBlogByNo(blogNo);
+			
+			// 블로그에서 사용한 것으로 되어 있는 써머노트 이미지(저장된 파일명이 DB에 저장되어 있고, 실제로 HDD에도 저장되어 있음)
+			List<SummernoteImageDTO> summernoteImageList = blogMapper.selectSummernoteImageListInBlog(blogNo);
+			
+			// 블로그에서 사용한 것으로 저장되어 있으나 블로그 내용(content)에는 없는 써머노트 이미지를 찾아서 제거
+			if(summernoteImageList != null && summernoteImageList.isEmpty() == false) {
+				for(SummernoteImageDTO summernoteImage : summernoteImageList) {
+					if(blog.getContent().contains(summernoteImage.getFilesystem()) == false) {
+						File file = new File("C:" + File.separator + "summernoteImage", summernoteImage.getFilesystem());
+						if(file.exists()) {
+							file.delete();  // HDD에 저장된 파일 지우기
+						}
+						blogMapper.deleteSummernoteImage(summernoteImage.getFilesystem());  // DB에 목록에서 지우기
+					}
+				}
+			}
+			
+			// 블로그 반환
+			return blog;
 	}
 	
+	@Transactional
 	@Override
 	public void modifyBlog(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -193,8 +243,23 @@ public class BlogServiceImpl implements BlogService {
 			
 			out.println("<script>");
 			if(result > 0) {
+				
+				// 파라미터 summernoteImageNames
+				String[] summernoteImageNames = request.getParameterValues("summernoteImageNames");
+				
+				// DB에 SummernoteImage 저장
+				if(summernoteImageNames != null) {
+					for(String filesystem : summernoteImageNames) {
+						SummernoteImageDTO summernoteImage = SummernoteImageDTO.builder()
+								.blogNo(blog.getBlogNo())
+								.filesystem(filesystem)
+								.build();
+						blogMapper.insertSummernoteImage(summernoteImage);
+					}
+				}
 				out.println("alert('수정 성공');");
 				out.println("location.href='" + request.getContextPath() + "/blog/detail?blogNo=" + blogNo + "';");
+					
 			} else {
 				out.println("alert('수정 실패');");
 				out.println("history.back();");
@@ -213,8 +278,11 @@ public class BlogServiceImpl implements BlogService {
 		// 파라미터 blogNo
 		int blogNo = Integer.parseInt(request.getParameter("blogNo"));
 		
+		// HDD에서 삭제해야 하는 SummernoteImage 리스트 
+		List<SummernoteImageDTO> summernoteImageList = blogMapper.selectSummernoteImageListInBlog(blogNo);
+		
 		// DB 삭제
-		int result = blogMapper.deleteBlog(blogNo);
+		int result = blogMapper.deleteBlog(blogNo);  // 외래키 제약조건에 의해서 SummernoteImage도 모두 지워짐
 		
 		// 응답
 		try {
@@ -224,8 +292,19 @@ public class BlogServiceImpl implements BlogService {
 			
 			out.println("<script>");
 			if(result > 0) {
+				
+				// HDD에서 SummernoteImage 리스트 삭제
+				if(summernoteImageList != null && summernoteImageList.isEmpty() == false) {
+					for(SummernoteImageDTO summernoteImage : summernoteImageList) {
+						File file = new File("C:" + File.separator + "summernoteImage", summernoteImage.getFilesystem());
+						if(file.exists()) {
+							file.delete();
+						}
+					}
+				}
 				out.println("alert('삭제 성공');");
 				out.println("location.href='" + request.getContextPath() + "/blog/list'");
+				
 			} else {
 				out.println("alert('삭제 실패');");
 				out.println("history.back();");
@@ -237,6 +316,4 @@ public class BlogServiceImpl implements BlogService {
 			e.printStackTrace();
 		}
 	}
-	
-	
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="StaffProject"/>
+<aop-project name="MyProject"/>
 <aop-project name="Galaxy"/>
 <aop-project name="09_Mybatis">
 <aspect-definition advice-class-name="com.gdu.app09.aop.RequestLoggingAspect" advice-method-name="executeLogging(org.aspectj.lang.ProceedingJoinPoint)" advice-type="AROUND" aspect-end-line-number="24" aspect-name="requestLoggingAspect" aspect-start-line-number="24" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/09_Mybatis/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" pointcut-expression="com.gdu.app09.aop.RequestLoggingAspect.setPointCut()" proxy-target-class="false">

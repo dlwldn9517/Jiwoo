@@ -40,15 +40,15 @@ public class BlogController {
 		return "blog/write";
 	}
 	
-	@PostMapping("/blog/add")
-	public void add(HttpServletRequest request, HttpServletResponse response) {
-		blogService.saveBlog(request, response);
-	}
-	
 	@ResponseBody
 	@PostMapping(value="/blog/uploadImage", produces="application/json") // 이미지 받아올 수 있는 request ==> multipartRequest
 	public Map<String, Object> uploadImage(MultipartHttpServletRequest multipartRequest) {	// json 반환 - MAP (잭슨 있으니까)
 		return blogService.saveSummernoteImage(multipartRequest);
+	}
+	
+	@PostMapping("/blog/add")
+	public void add(HttpServletRequest request, HttpServletResponse response) {
+		blogService.saveBlog(request, response);
 	}
 	
 	@GetMapping("/blog/increse/hit")

@@ -13,8 +13,8 @@ import com.gdu.app15.domain.BlogDTO;
 public interface BlogService {
 
 	public void getBlogList(Model model);
-	public void saveBlog(HttpServletRequest request, HttpServletResponse response);
 	public Map<String, Object> saveSummernoteImage(MultipartHttpServletRequest multipartRequest);
+	public void saveBlog(HttpServletRequest request, HttpServletResponse response);
 	public int increseBlogHit(int blogNo);
 	public BlogDTO getBlogByNo(int blogNo);
 	public void modifyBlog(HttpServletRequest request, HttpServletResponse response);
