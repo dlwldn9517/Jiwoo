@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--/* 
+	th:replace 헤드를 다른 조각으로 변경해줘라
+	
+	레이아웃 폴더의 헤더html의 헤더 부분을 찾아서 바꿔줘
+	확장자 .html은 적지 않는다.
+	
+	''로 스트링 감싸줌
+*/-->
+<head th:replace="~{layout/header::head('목록')}"></head>
+<body>
+<div>
+
+	<div th:replace="~{layout/header::body_title}"></div>
+	
+	<h1 th:text="|블로그 목록(전체 ${totalRecord}개)|"></h1>
+	
+	<div>
+		<input type="button" value="블로그 작성하기" id="btn_write"> <!-- 로그인 한 사람만 작성 버튼이 보인다. 로그인 안하면 작성 못해 -->
+		
+		<script>
+		
+			$('#btn_write').click(function(){
+				location.href = '/blog/write';
+			});
+		
+		</script>
+		
+	</div>
+	
+	<div>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>순번</td>				
+					<td>제목</td>				
+					<td>조회수</td>				
+					<td>작성일</td>				
+				</tr>
+			</thead>
+			<tbody>
+				<!--/* 
+					<c:forEach items="${blogList}" var="blog" varStatus="vs">
+					
+					Variable Expression : ${}
+					vs : varStatus 대신에 사용
+					
+					파라미터는 ?를 없애고, ( )로 감싸줌
+					th:text="" 안에 받아올 값을 넣어주면 됨 
+					
+					파라미터가 2개일 때는 그냥 , 붙여서 작성해주면 됨
+					<td><a th:href="@{/blog/increse/hit(blogNo=${blog.blogNo},a=1)}"></a></td>
+				*/-->
+				<tr th:each="blog,vs:${blogList}">
+					<td th:text="${beginNo - vs.index}"></td>
+					<td><a th:href="@{/blog/increse/hit(blogNo=${blog.blogNo})}" th:text="${blog.title}"></a></td>
+					<td th:text="${blog.hit}"></td>
+					<td th:text="${blog.createDate}"></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<!-- th:utext="HTML구성요소포함한텍스트" -->
+					<td colspan="4" th:utext="${paging}"></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	
+</div>
+
+<!-- footer jsp 따로 할거면 닫아주는 바디와 html은 해당 페이지에서 닫아야 함 -->
+</body>
+</html>

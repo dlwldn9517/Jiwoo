@@ -72,7 +72,7 @@
 										어떤 파일이 HDD에 저장되어 있는지 목록을 저장해 둔다.
 										블로그를 등록할 때 써머노트에서 사용한 파일명도 함께 등록한다.
 									*/
-									$('#summernote_image_list').append($('<input type="hidden" name="summernoteImageNames" value="' + resData.filesystem + '">'));
+									$('#summernote_image_list').append($('<input type="hidden" name="summernoteImageNames" value="' + resData.filesystem + '">'))
 									
 								}
 							});	// ajax

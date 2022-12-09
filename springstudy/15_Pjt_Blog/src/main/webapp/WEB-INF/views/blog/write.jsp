@@ -113,7 +113,7 @@
 			
 			<div>
 				<label for="content">내용</label>
-				<textarea name="content" name="filesystemList" id="content"></textarea>				
+				<textarea name="content" id="content"></textarea>				
 			</div>
 			
 			<!-- 써머노트에서 사용한 이미지 목록(등록 후 삭제한 이미지도 우선은 모두 올라감: 서비스단에서 지움) -->
