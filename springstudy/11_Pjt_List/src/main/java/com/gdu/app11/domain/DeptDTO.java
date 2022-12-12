@@ -8,10 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class DeptDTO {
-	
 	private int departmentId;
 	private String departmentName;
 	private int managerId;
 	private int locationId;
-
 }

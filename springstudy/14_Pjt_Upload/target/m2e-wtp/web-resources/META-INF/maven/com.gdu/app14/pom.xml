@@ -17,7 +17,6 @@
 
 	<dependencies>
 
-		<!-- 파일 업로드 할 때 아래 2개 필요 -->
 		<!-- 파일 처리 2개(commons-io, commons-fileupload) -->
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
@@ -33,15 +32,13 @@
 		    <version>1.4</version>
 		</dependency>
 
-
-		<!-- 썸네일 처리 (이미지일 때 필요)-->
+		<!-- 썸네일 처리 -->
 		<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
 		<dependency>
 		    <groupId>net.coobird</groupId>
 		    <artifactId>thumbnailator</artifactId>
 		    <version>0.4.13</version>
 		</dependency>
-
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>

@@ -11,109 +11,131 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gdu.app13.domain.UserDTO;
 import com.gdu.app13.service.UserService;
 
 @Controller
-public class userController {
-	
+public class UserController {
+
 	@Autowired
 	private UserService userService;
 	
-	// <a> 태그를 이용하여 값을 전달하면 GET 방식이다.
 	@GetMapping("/")
 	public String index() {
 		return "index";
 	}
 	
-	@GetMapping("/user/agree")
-	public String agree() {
+	@GetMapping("/user/agree/form")
+	public String agreeForm() {
 		return "user/agree";
 	}
 	
 	@GetMapping("/user/join/write")
 	public String joinWrite(@RequestParam(required=false) String location
-	                      , @RequestParam(required=false) String promotion
-	                      , Model model) {
+			              , @RequestParam(required = false) String promotion
+			              , Model model) {
 		model.addAttribute("location", location);
 		model.addAttribute("promotion", promotion);
 		return "user/join";
 	}
-	   
-	@ResponseBody  // ajax할 때 필요
-	@GetMapping(value="/user/checkReduceId", produces=MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, Object> checkReduceId(String id) {
+	
+	@ResponseBody
+	@GetMapping(value="/user/checkReduceId", produces="application/json")
+	public Map<String, Object> checkReduceId(String id){
 		return userService.isReduceId(id);
 	}
-	   
+	
 	@ResponseBody
-	@GetMapping(value="/user/checkReduceEmail", produces=MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, Object> checkReduceEmail(String email) {
+	@GetMapping(value="/user/checkReduceEmail", produces="application/json")
+	public Map<String, Object> checkReduceEmail(String email){
 		return userService.isReduceEmail(email);
 	}
-	   
+	
 	@ResponseBody
-	@GetMapping(value="/user/sendAuthCode", produces=MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, Object> sendAuthCode(String email) {
+	@GetMapping(value="/user/sendAuthCode", produces="application/json")
+	public Map<String, Object> sendAuthCode(String email){
 		return userService.sendAuthCode(email);
 	}
-	   
+	
 	@PostMapping("/user/join")
 	public void join(HttpServletRequest request, HttpServletResponse response) {
 		userService.join(request, response);
 	}
-	   
+	
 	@PostMapping("/user/retire")
 	public void retire(HttpServletRequest request, HttpServletResponse response) {
 		userService.retire(request, response);
 	}
-	   
-	@GetMapping("user/login/form")   // <a> 태그를 이용하여 값을 전달하면 GET 방식이다. @GetMapping 
+	
+	@GetMapping("/user/login/form")
 	public String loginForm(HttpServletRequest request, Model model) {
-	      
+		
 		// 요청 헤더 referer : 이전 페이지의 주소가 저장
 		model.addAttribute("url", request.getHeader("referer"));  // 로그인 후 되돌아 갈 주소 url
 		
 		// 네이버 로그인
-		model.addAttribute("apiURL",userService.getNaverLoginApiURL(request));
+		model.addAttribute("apiURL", userService.getNaverLoginApiURL(request));
 		
 		return "user/login";
+		
 	}
-	   
+	
 	@PostMapping("/user/login")
 	public void login(HttpServletRequest request, HttpServletResponse response) {
 		userService.login(request, response);
 	}
 	
 	@GetMapping("/user/naver/login")
-	public void naverLogin(HttpServletRequest request) {
-		userService.getNaverLoginTokenNProfile(request);
+	public String naverLogin(HttpServletRequest request, Model model) {
+		
+		String access_token = userService.getNaverLoginToken(request);
+		UserDTO profile = userService.getNaverLoginProfile(access_token);  // 네이버로그인에서 받아온 프로필 정보
+		UserDTO naverUser = userService.getNaverUserById(profile.getId()); // 이미 네이버로그인으로 가입한 회원이라면 DB에 정보가 있음
+		
+		// 네이버로그인으로 가입하려는 회원 : 간편가입페이지로 이동
+		if(naverUser == null) {
+			model.addAttribute("profile", profile);
+			return "user/naver_join";
+		}
+		// 네이버로그인으로 이미 가입한 회원 : 로그인 처리
+		else {
+			userService.naverLogin(request, naverUser);
+			return "redirect:/";
+		}
+		
 	}
-	   
+	
+	@PostMapping("/user/naver/join")
+	public void naverJoin(HttpServletRequest request, HttpServletResponse response) {
+		userService.naverJoin(request, response);
+	}
+
 	@GetMapping("/user/logout")
-	public String requiredLogin_logout(HttpServletRequest request, HttpServletResponse response) {
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		userService.logout(request, response);
 		return "redirect:/";
 	}
-	   
+	
 	@GetMapping("/user/check/form")
 	public String requiredLogin_checkForm() {
 		return "user/check";
 	}
-	   
+	
 	@ResponseBody
 	@PostMapping(value="/user/check/pw", produces="application/json")
 	public Map<String, Object> requiredLogin_checkPw(HttpServletRequest request) {
-	 return userService.confirmPassword(request);
+		return userService.confirmPassword(request);
 	}
-	   
+	
 	@GetMapping("/user/mypage")
 	public String requiredLogin_mypage() {
-	 return "user/mypage";
+		return "user/mypage";
 	}
-	   
+	
 	@PostMapping("/user/modify/pw")
 	public void requiredLogin_modifyPw(HttpServletRequest request, HttpServletResponse response) {
 		userService.modifyPassword(request, response);
@@ -129,7 +151,37 @@ public class userController {
 		userService.restoreUser(request, response);
 	}
 	
+	@GetMapping("/user/findId/form")  // 아이디 찾기 화면
+	public String findIdForm() {
+		return "user/findId";
+	}
 	
+	@ResponseBody
+	@PostMapping(value="/user/findId", produces="application/json")  // 아이디 찾기
+	public Map<String, Object> findId(@RequestBody Map<String, Object> map) {
+		return userService.findUser(map);
+	}
 	
+	@GetMapping("/user/findPw/form")  // 비밀번호 찾기 화면
+	public String findPwForm() {
+		return "user/findPw";
+	}
+	
+	@ResponseBody
+	@PostMapping(value="/user/findPw", produces="application/json")  // 비밀번호 찾기
+	public Map<String, Object> findPw(@RequestBody Map<String, Object> map) {
+		return userService.findUser(map);
+	}
+	
+	@ResponseBody
+	@PostMapping(value="/user/sendTemporaryPassword", produces="application/json")  // 이메일로 임시비번 전송
+	public  Map<String, Object> memberSendEmailTemporaryPassword(UserDTO user) {
+		return userService.sendTemporaryPassword(user);
+	}
+	
+	@PostMapping("/user/modify")
+	public void modify(HttpServletRequest request, HttpServletResponse response) {
+		userService.modifyUser(request, response);
+	}
 	
 }

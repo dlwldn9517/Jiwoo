@@ -6,15 +6,12 @@
 
 <mapper namespace="com.gdu.app14.mapper.UploadMapper">
 
-	<!-- 같은 별명을 줘야 DTO에 맵핑이 된다. UploadDTO에서 attachCnt-->
 	<select id="selectUploadList" resultType="UploadDTO">
 		SELECT U.UPLOAD_NO, U.TITLE, U.CONTENT, U.CREATE_DATE, U.MODIFY_DATE, (SELECT COUNT(*) FROM ATTACH A WHERE U.UPLOAD_NO = A.UPLOAD_NO) AS ATTACH_CNT
 		  FROM UPLOAD U
 	</select>
 	
-	<!-- 글 한 개당 insert 2개 ATTACH 테이블, UPLOAD 테이블 -->
-	<!-- 의미 없이 테이블 사용할 때 DUAL  -->
-	<!-- 
+	<!--
 		UPLOAD_SEQ.NEXTVAL 값을 INSERT 수행 이전에(BEFORE)
 		parameter로 전달되는 UploadDTO의 uploadNo에 넣어 주시오.
 	-->
@@ -31,12 +28,11 @@
 	
 	<insert id="insertAttach" parameterType="AttachDTO">
 		INSERT INTO ATTACH
-			(ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, UPLOAD_NO)
+			(ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, HAS_THUMBNAIL, UPLOAD_NO)
 		VALUES
-			(ATTACH_SEQ.NEXTVAL, #{path}, #{origin}, #{filesystem}, 0, #{uploadNo})
+			(ATTACH_SEQ.NEXTVAL, #{path}, #{origin}, #{filesystem}, 0, #{hasThumbnail}, #{uploadNo})
 	</insert>
 	
-	<!-- insert가 2개인 것처럼 select도 2개여야 함 -->
 	<select id="selectUploadByNo" parameterType="int" resultType="UploadDTO">
 		SELECT UPLOAD_NO, TITLE, CONTENT, CREATE_DATE, MODIFY_DATE
 		  FROM UPLOAD
@@ -44,7 +40,7 @@
 	</select>
 	
 	<select id="selectAttachList" parameterType="int" resultType="AttachDTO">
-		SELECT ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, UPLOAD_NO
+		SELECT ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, HAS_THUMBNAIL, UPLOAD_NO
 		  FROM ATTACH
 		 WHERE UPLOAD_NO = #{uploadNo}
 	</select>
@@ -56,7 +52,7 @@
 	</update>
 	
 	<select id="selectAttachByNo" parameterType="int" resultType="AttachDTO">
-		SELECT ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, UPLOAD_NO
+		SELECT ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, HAS_THUMBNAIL, UPLOAD_NO
 		  FROM ATTACH
 		 WHERE ATTACH_NO = #{attachNo}
 	</select>
@@ -81,9 +77,8 @@
 		 WHERE UPLOAD_NO = #{uploadNo}
 	</delete>
 	
-	<!-- 어제 날짜의 첨부 목록을 가지고 와라 -->
 	<select id="selectAttachListInYesterday" resultType="AttachDTO">
-		SELECT ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, UPLOAD_NO
+		SELECT ATTACH_NO, PATH, ORIGIN, FILESYSTEM, DOWNLOAD_CNT, HAS_THUMBNAIL, UPLOAD_NO
 		  FROM ATTACH
 		 WHERE PATH = CONCAT('storage\\', TO_CHAR(SYSDATE - 1, 'yyyy\\mm\\dd'))
 	</select>

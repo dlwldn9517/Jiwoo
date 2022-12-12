@@ -6,18 +6,33 @@
 
 <mapper namespace="com.gdu.app15.mapper.BlogMapper">
 
+	<resultMap type="BlogDTO" id="BlogMap">
+		<id property="blogNo" column="BLOG_NO"/>
+		<result property="title" column="TITLE"/>
+		<result property="content" column="CONTENT"/>
+		<result property="hit" column="HIT"/>
+		<result property="ip" column="IP"/>
+		<result property="createDate" column="CREATE_DATE"/>
+		<result property="modifyDate" column="MODIFY_DATE"/>
+		<association property="user" javaType="UserDTO">
+			<id property="userNo" column="USER_NO"/>
+			<result property="id" column="ID"/>
+			<result property="pw" column="PW"/>
+			<result property="name" column="NAME"/>
+		</association>
+	</resultMap>
+
 	<select id="selectBlogListCount" resultType="int">
 		SELECT COUNT(*)
 		  FROM BLOG
 	</select>
 	
-	<!-- 블로그를 가져갈 때 사용자 정보를 가져가야 함  join도 해야 하는데 동시에 다룰 수 있는 DTO가 없어서 MAP에 담는다. -->
-	<!-- 인라인 뷰 : SELECT A절을 사용한 것 -->
-	<select id="selectBlogListByMap" parameterType="map" resultType="BlogDTO"> <!-- 페이징처리 쿼리문  // 파리미터타입 map에는 begin과 end가 담겨야 함-->   
-		SELECT A.ROW_NUM, A.BLOG_NO, A.TITLE, A.CONTENT, A.HIT, A.IP, A.CREATE_DATE, A.MODIFY_DATE
-		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY BLOG_NO DESC) AS ROW_NUM, BLOG_NO, TITLE, CONTENT, HIT, IP, CREATE_DATE, MODIFY_DATE
-		  		  FROM BLOG) A 	    
-		 WHERE A.ROW_NUM BETWEEN #{begin} AND #{end} 		  
+	<select id="selectBlogListByMap" parameterType="Map" resultMap="BlogMap">
+		SELECT A.ROW_NUM, A.BLOG_NO, A.TITLE, A.CONTENT, A.HIT, A.IP, A.CREATE_DATE, A.MODIFY_DATE, A.USER_NO, A.ID, A.NAME
+		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY BLOG_NO DESC) AS ROW_NUM, B.BLOG_NO, B.TITLE, B.CONTENT, B.HIT, B.IP, B.CREATE_DATE, B.MODIFY_DATE, U.USER_NO, U.ID, U.NAME
+		          FROM USERS U INNER JOIN BLOG B
+		            ON U.USER_NO = B.USER_NO) A
+		 WHERE A.ROW_NUM BETWEEN #{begin} AND #{end}
 	</select>
 	
 	<insert id="insertSummernoteImage" parameterType="SummernoteImageDTO">
@@ -27,36 +42,35 @@
 			(#{blogNo}, #{filesystem})
 	</insert>
 	
-	<!-- <selectKey> : 자동생성된 키 값을 가져와서 이 값을 반환해서 사용, insert 타입에만 사용 가능,  -->
 	<insert id="insertBlog" parameterType="BlogDTO">
 		<selectKey keyProperty="blogNo" resultType="int" order="BEFORE">
 			SELECT BLOG_SEQ.NEXTVAL
 			  FROM DUAL
 		</selectKey>
 		INSERT INTO BLOG
-			(BLOG_NO, TITLE, CONTENT, HIT, IP, CREATE_DATE, MODIFY_DATE)
+			(BLOG_NO, TITLE, CONTENT, HIT, IP, CREATE_DATE, MODIFY_DATE, USER_NO)
 		VALUES
-			(#{blogNo}, #{title}, #{content}, 0, #{ip}, SYSDATE, SYSDATE)
+			(#{blogNo}, #{title}, #{content}, 0, #{ip}, SYSDATE, SYSDATE, #{user.userNo})
 	</insert>
 	
-	<!-- 상세보기 : 조회수 업데이트, 댓글 목록 가져가는 것 -->
-	<!-- 조회수 늘리기  -->
 	<update id="updateHit" parameterType="int">
 		UPDATE BLOG
 		   SET HIT = HIT + 1
 		 WHERE BLOG_NO = #{blogNo}
 	</update>
 	
-	<!-- 상세보기 -->
-	<select id="selectBlogByNo" parameterType="int" resultType="BlogDTO">
-		SELECT BLOG_NO, TITLE, CONTENT, HIT, IP, CREATE_DATE, MODIFY_DATE
-		  FROM BLOG
-		 WHERE BLOG_NO = #{blogNo}
+	<select id="selectBlogByNo" parameterType="int" resultMap="BlogMap">
+		SELECT B.BLOG_NO, B.TITLE, B.CONTENT, B.HIT, B.IP, B.CREATE_DATE, B.MODIFY_DATE, U.USER_NO, U.ID, U.NAME
+          FROM USERS U INNER JOIN BLOG B
+            ON U.USER_NO = B.USER_NO
+		 WHERE B.BLOG_NO = #{blogNo}
 	</select>
 	
 	<update id="updateBlog" parameterType="BlogDTO">
 		UPDATE BLOG
-		   SET TITLE = #{title}, CONTENT = #{content}, MODIFY_DATE = SYSDATE
+		   SET TITLE = #{title}
+		     , CONTENT = #{content}
+		     , MODIFY_DATE = SYSDATE
 		 WHERE BLOG_NO = #{blogNo}
 	</update>
 	

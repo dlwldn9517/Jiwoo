@@ -15,133 +15,119 @@
 		text-decoration: none;
 		color: gray;
 	}
+	.title {
+		cursor: pointer;
+	}
+	.title:hover {
+		color: teal;
+	}
 	.paging {
 		width: 210px;
 		margin: 0 auto;
 		color: gray;
 	}
-	.paging a, .paging span {
+	.paging a, .paging span, .paging strong {
 		display: inline-block;
 		width: 30px;
 		height: 30px;
-		line-height: 30px;
+		line-height: 28px;
 		text-align: center;
 	}
 	.hidden {
 		visibility: hidden;
 	}
 	.now_page {
-		border: 1px solid gray;
 		color: teal;
 		font-weight: 900;
 	}
 	.lnk:hover {
-		border: 1px solid gray;
 		color: skyblue;
+	}
+	table {
+		width: 1760px;
+		border-collapse: collapse;
+	}
+	td:nth-of-type(1) { width: 80px; }
+	td:nth-of-type(2) { width: 160px; }
+	td:nth-of-type(3) { width: 240px; }
+	td:nth-of-type(4) { width: 240px; }
+	td:nth-of-type(5) { width: 240px; }
+	td:nth-of-type(6) { width: 160px; }
+	td:nth-of-type(7) { width: 160px; }
+	td:nth-of-type(7) { width: 160px; }
+	td:nth-of-type(7) { width: 160px; }
+	td:nth-of-type(7) { width: 160px; }
+	td {
+		padding: 5px;
+		border-top: 1px solid silver;
+		border-bottom: 1px solid silver;
+		text-align: center;
+	}
+	tfoot td {
+		border-left: 0;
+		border-right: 0;
+		border-bottom: 0;
 	}
 </style>
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 <script>
-	$(document).ready(function() {
-		// area1, area2 표시
-		// 초기 상태 : area1, area2 둘 다 숨김
-		$('#area1, #area2').css('display', 'none');
-		// column 선택에 따른 area1, area2 표시
-		$('#column').change(function() {
-			let combo = $(this);
-			if(combo.val() == '') {
-				$('#area1, #area2').css('display', 'none');
-			} else if(combo.val() == 'HIRE_DATE' || combo.val() == 'SALARY') {
-				$('#area1').css('display', 'none');
-				$('#area2').css('display', 'inline');
-			} else {
-				$('#area1').css('display', 'inline');
-				$('#area2').css('display', 'none');
-			}
+
+	$(document).ready(function(){
+		
+		// 세션에 recordPerPage가 없는 경우 recordPerPage 10으로 초기화
+		var recordPerPage = ('${recordPerPage}'=='') ? '10' : '${recordPerPage}';
+		$('#recordPerPage').val(recordPerPage);
+		
+		// recordPerPage 변경
+		$('#recordPerPage').change(function(){
+			location.href = '${contextPath}/emp/change/list?recordPerPage=' + $(this).val();
 		});
 		
-		// 자동 완성
-		$('#param').keyup(function() {
-			$('#auto_complete').empty();
-			if($(this).val() == ''){
-				return;
-			}
-			$.ajax({
-				/* 요청 */
-				type: 'get',
-				url: '${contextPath}/emp/autoComplete',
-				data: 'target=' + $('#target').val() + '&param=' + $(this).val(),
-				
-				/* 응답 */
-				dataType: 'json',
-				success: function(resData) {
-					if(resData.status == 200) {
-						$.each(resData.list, function(i, emp) {
-							$('#auto_complete')
-							.append($('<option>').val(emp[resData.target]));
-						});
-					}
-				}
-			});
+		// 필드 제목으로 정렬
+		$('.title').click(function(){
+			location.href = '${contextPath}/emp/list?title=' + $(this).data('title') + '&order=' + $(this).data('order') + '&page=${page}';
 		});
+		
 	});
+	
 </script>
 </head>
 <body>
 
-	<div>
-		<form id="frm_search" action="${contextPath}/emp/search">
-			<select id="column" name="column">
-				<option value="">:::선택:::</option>
-				<option value="EMPLOYEE_ID">사원번호</option>
-				<option value="E.DEPARTMENT_ID">부서번호</option>				
-				<option value="LAST_NAME">성</option>
-				<option value="FIRST_NAME">이름</option>
-				<option value="PHONE_NUMBER">연락처</option>
-				<option value="HIRE_DATE">입사일</option>
-				<option value="SALARY">연봉</option>
-			</select>
-			<span id="area1">
-				<input type="text" id="query" name="query">
-			</span>
-			<span id="area2">
-				<input type="text" id="start" name="start">
-				~
-				<input type="text" id="stop" name="stop">
-			</span>
-			<span>
-				<input type="submit" value="검색">
-				<input type="button" value="전체사원조회" id="btn_all">
-			</span>
-		</form>
-	</div>
-
-	<div>
-		<select name="target" id="target">
-			<option value="FIRST_NAME">이름</option>
-			<option value="LAST_NAME">성</option>
-			<option value="EMAIL">이메일</option>
-		</select>
-		<input type="text" name="param" id="param" list="auto_complete">
-		<datalist id="auto_complete"></datalist>
+	<div>	
+		<input type="button" value="조회화면으로이동" onclick="location.href='${contextPath}/emp/search/form'">
 	</div>
 
 	<hr>
-	
+
 	<div>
-		<table border="1">
+		<h1>사원 전체 목록 조회하기</h1>
+	</div>
+
+	<div>
+		<select id="recordPerPage">
+			<option value="10">10개</option>
+			<option value="20">20개</option>
+			<option value="30">30개</option>
+		</select>
+	</div>
+	
+	<hr>
+
+	<div>
+		<table>
 			<thead>
 				<tr>
 					<td>순번</td>
-					<td>사원번호</td>
-					<td>사원명</td>
-					<td>이메일</td>
-					<td>전화번호</td>
-					<td>입사일자</td>
-					<td>연봉</td>
-					<td>커미션</td>
-					<td>부서번호</td>
-					<td>부서명</td>
+					<td><span class="title" data-title="EMPLOYEE_ID" data-order="${order}">사원번호</span></td>
+					<td><span class="title" data-title="FIRST_NAME" data-order="${order}">사원명</span></td>
+					<td><span class="title" data-title="EMAIL" data-order="${order}">이메일</span></td>
+					<td><span class="title" data-title="PHONE_NUMBER" data-order="${order}">전화번호</span></td>
+					<td><span class="title" data-title="HIRE_DATE" data-order="${order}">입사일자</span></td>
+					<td><span class="title" data-title="SALARY" data-order="${order}">연봉</span></td>
+					<td><span class="title" data-title="COMMISSION_PCT" data-order="${order}">커미션</span></td>
+					<td><span class="title" data-title="DEPARTMENT_ID" data-order="${order}">부서번호</span></td>
+					<td><span class="title" data-title="DEPARTMENT_NAME" data-order="${order}">부서명</span></td>
 				</tr>
 			</thead>
 			<tbody>

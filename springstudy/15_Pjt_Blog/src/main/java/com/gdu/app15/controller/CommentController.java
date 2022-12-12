@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gdu.app15.domain.CommentDTO;
 import com.gdu.app15.service.CommentService;
 
 @Controller
@@ -27,9 +26,9 @@ public class CommentController {
 	}
 	
 	@ResponseBody
-	@PostMapping(value="/comment/add", produces="application/json")	// true, false 반환이라 UTF-8 필요없음
-	public Map<String, Object> add(CommentDTO comment) {
-		return commentService.addComment(comment);
+	@PostMapping(value="/comment/add", produces="application/json")
+	public Map<String, Object> add(HttpServletRequest request) {
+		return commentService.addComment(request);
 	}
 	
 	@ResponseBody
@@ -40,16 +39,14 @@ public class CommentController {
 	
 	@ResponseBody
 	@PostMapping(value="/comment/remove", produces="application/json")
-	public Map<String, Object> remove(@RequestParam("commentNo") int commentNo) {
+	public Map<String, Object> remove(@RequestParam("commentNo") int commentNo){
 		return commentService.removeComment(commentNo);
 	}
 	
 	@ResponseBody
 	@PostMapping(value="/comment/reply/add", produces="application/json")
-	public Map<String, Object> replyAdd(CommentDTO reply) {
-		return commentService.addReply(reply);
+	public Map<String, Object> replyAdd(HttpServletRequest request){
+		return commentService.addReply(request);
 	}
-	
-	
 	
 }

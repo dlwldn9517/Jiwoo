@@ -7,10 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 </head>
 <body>
 
-	<a href="${contextPath}/bbs/list">게시판목록</a>
+	<div><a href="${contextPath}/emp/list">사원목록</a></div>
+
+	<div><a href="${contextPath}/emp/search/form">사원검색</a></div>	
 
 </body>
 </html>

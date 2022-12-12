@@ -10,7 +10,7 @@
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 </head>
 <body>
-	
+
 	<a href="${contextPath}/upload/list">업로드게시판</a>
 	
 </body>

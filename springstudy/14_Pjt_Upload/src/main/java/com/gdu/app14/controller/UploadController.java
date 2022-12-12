@@ -30,7 +30,7 @@ public class UploadController {
 	
 	@GetMapping("/upload/list")
 	public String list(Model model) {
-		model.addAttribute("uploadList", uploadService.getUploadList());	// list.jsp에서 (items="${uploadList}) == uploadList 이름으로 모델에 저장
+		model.addAttribute("uploadList", uploadService.getUploadList());
 		return "upload/list";
 	}
 	
@@ -40,21 +40,25 @@ public class UploadController {
 	}
 	
 	@PostMapping("/upload/add")
-	public void add(MultipartHttpServletRequest multipartRequest, HttpServletResponse response) {	// 첨부가 있을 때는 MultipartHttpServletRequest 사용, 첨부할 때 일반 request는 사용 불가
+	public void add(MultipartHttpServletRequest multipartRequest, HttpServletResponse response) {
 		uploadService.save(multipartRequest, response);
 	}
 	
 	@GetMapping("/upload/detail")
-	// 매개변수에 서비스한테 넘겨줄 것이 필요해서 @RequestParam에 uploadNo를 담는다.
 	public String detail(@RequestParam(value="uploadNo", required=false, defaultValue="0") int uploadNo, Model model) {
 		uploadService.getUploadByNo(uploadNo, model);
 		return "upload/detail";
 	}
 	
 	@ResponseBody
+	@GetMapping("/upload/display")
+	public ResponseEntity<byte[]> display(@RequestParam int attachNo){
+		return uploadService.display(attachNo);
+	}
+	
+	@ResponseBody
 	@GetMapping("/upload/download")
-	public ResponseEntity<Resource> download(@RequestHeader("User-Agent") String userAgent, int attachNo) {	// int attachNo은 @RequestParam을 생략 가능하다.
-		// 파라미터로 attachNo는 넘겨줘야 한다.
+	public ResponseEntity<Resource> download(@RequestHeader("User-Agent") String userAgent, @RequestParam("attachNo") int attachNo) {
 		return uploadService.download(userAgent, attachNo);
 	}
 	
@@ -76,9 +80,9 @@ public class UploadController {
 	}
 	
 	@GetMapping("/upload/attach/remove")
-	public String attachRemove(@RequestParam("uploadNo") int uploadNo, @RequestParam("attachNo") int attachNo) {
+	public String uploadAttachRemove(@RequestParam("uploadNo") int uploadNo, @RequestParam("attachNo") int attachNo) {
 		uploadService.removeAttachByAttachNo(attachNo);
-		return "redirect:/upload/detail?uploadNo=" + uploadNo;	// detail.jsp로 갈때 uploadNo가 필요하다. detail.jsp에서 파라미터로 uploadNo를 받아갈 수 있게 해줘야함
+		return "redirect:/upload/detail?uploadNo=" + uploadNo;
 	}
 	
 	@PostMapping("/upload/remove")

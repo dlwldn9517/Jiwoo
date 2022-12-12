@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.gdu.app15.domain.BlogDTO;
 
 public interface BlogService {
-
 	public void getBlogList(Model model);
 	public Map<String, Object> saveSummernoteImage(MultipartHttpServletRequest multipartRequest);
 	public void saveBlog(HttpServletRequest request, HttpServletResponse response);
@@ -19,5 +18,4 @@ public interface BlogService {
 	public BlogDTO getBlogByNo(int blogNo);
 	public void modifyBlog(HttpServletRequest request, HttpServletResponse response);
 	public void removeBlog(HttpServletRequest request, HttpServletResponse response);
-	
 }

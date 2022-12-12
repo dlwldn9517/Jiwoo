@@ -17,5 +17,5 @@ public class UploadDTO {
 	private String content;
 	private Timestamp createDate;
 	private Timestamp modifyDate;
-	private int attachCnt;	// 첨부 파일 갯수, DB테이블에는 없고 DTO에만 있다.
+	private int attachCnt;
 }

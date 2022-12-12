@@ -72,12 +72,12 @@
 		
 	}  // fn_idCheck
 	
-	// 2. 패스워드
+	// 2. 비밀번호
 	function fn_pwCheck(){
 		
 		$('#pw').keyup(function(){
 			
-			// 입력한 패스워드
+			// 입력한 비밀번호
 			let pwValue = $(this).val();
 			
 			// 정규식(8~20자, 소문자+대문자+숫자+특수문자8종(!@#$%^&*) 3개 이상 조합)
@@ -102,15 +102,15 @@
 		
 	}  // fn_pwCheck
 	
-	// 3. 패스워드 확인
+	// 3. 비밀번호 확인
 	function fn_pwCheckAgain(){
 		
 		$('#re_pw').keyup(function(){
 			
-			// 입력한 패스워드 확인
+			// 입력한 비밀번호 확인
 			let rePwValue = $(this).val();
 			
-			// 패스워드와 패스워드 재입력 검사
+			// 비밀번호와 비밀번호 재입력 검사
 			if(rePwValue != '' && rePwValue != $('#pw').val()){
 				$('#msg_re_pw').text('비밀번호를 확인하세요.');
 				rePwPass = false;
@@ -269,17 +269,14 @@
 				
 				// 인증번호 보내는 ajax
 				$.ajax({
-					
 					/* 요청 */
 					type: 'get',
 					url: '${contextPath}/user/sendAuthCode',
 					data: 'email=' + $('#email').val(),
-					
 					/* 응답 */
 					dataType: 'json',
 					success: function(resData){
 						alert('인증코드를 발송했습니다. 이메일을 확인하세요.');
-						
 						// 발송한 인증코드와 사용자가 입력한 인증코드 비교
 						$('#btn_verifyAuthCode').click(function(){
 							if(resData.authCode == $('#authCode').val()){
@@ -314,7 +311,9 @@
 				$('#authCode').prop('readonly', true);
 				
 			});  // new Promise
+			
 		});  // click
+		
 	}  // fn_emailCheck
 	
 	// 10. 서브밋 (회원가입)
@@ -377,16 +376,16 @@
 				<span id="msg_id"></span>
 			</div>
 			
-			<!-- 패스워드 -->
+			<!-- 비밀번호 -->
 			<div>
-				<label for="pw">패스워드*</label>
+				<label for="pw">비밀번호*</label>
 				<input type="password" name="pw" id="pw">
 				<span id="msg_pw"></span>
 			</div>
 			
-			<!-- 패스워드 재확인 -->
+			<!-- 비밀번호 재확인 -->
 			<div>
-				<label for="re_pw">패스워드 확인*</label>
+				<label for="re_pw">비밀번호 확인*</label>
 				<input type="password" id="re_pw">
 				<span id="msg_re_pw"></span>
 			</div>
@@ -399,7 +398,8 @@
 			
 			<!-- 성별 -->
 			<div>
-				<input type="radio" name="gender" id="none" value="N" checked="checked">
+				<span>성별*</span>
+				<input type="radio" name="gender" id="none" value="NO" checked="checked">
 				<label for="none">선택 안함</label>
 				<input type="radio" name="gender" id="male" value="M">
 				<label for="male">남자</label>
@@ -424,13 +424,13 @@
 			
 			<!-- 주소 -->
 			<div>
-				<input type="text" onclick="fn_execDaumPostcode()" name="postcode" id="postcode" placeholder="우편번호" readonly>
+				<input type="text" onclick="fn_execDaumPostcode()" name="postcode" id="postcode" placeholder="우편번호" readonly="readonly">
 				<input type="button" onclick="fn_execDaumPostcode()" value="우편번호 찾기"><br>
-				<input type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소" readonly>
-				<input type="text" name="jibunAddress" id="jibunAddress" placeholder="지번주소" readonly><br>
+				<input type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소"  readonly="readonly">
+				<input type="text" name="jibunAddress" id="jibunAddress" placeholder="지번주소"  readonly="readonly"><br>
 				<span id="guide" style="color:#999;display:none"></span>
 				<input type="text" name="detailAddress" id="detailAddress" placeholder="상세주소">
-				<input type="text" name="extraAddress" id="extraAddress" placeholder="참고항목" readonly>
+				<input type="text" name="extraAddress" id="extraAddress" placeholder="참고항목" readonly="readonly">
 				<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script>
 				    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -497,7 +497,7 @@
 				<input type="text" name="email" id="email">
 				<input type="button" value="인증번호받기" id="btn_getAuthCode">
 				<span id="msg_email"></span><br>
-				<input type="text" name="authCode" id="authCode" placeholder="인증코드 입력">
+				<input type="text" id="authCode" placeholder="인증코드 입력">
 				<input type="button" value="인증하기" id="btn_verifyAuthCode">
 			</div>
 			

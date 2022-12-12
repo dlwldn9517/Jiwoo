@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gdu.app15.domain.CommentDTO;
+import com.gdu.app15.domain.UserDTO;
 import com.gdu.app15.mapper.CommentMapper;
 import com.gdu.app15.util.PageUtil;
 
@@ -29,21 +30,32 @@ public class CommentServiceImpl implements CommentService {
 	}
 	
 	@Override
-	public Map<String, Object> addComment(CommentDTO comment) {
+	public Map<String, Object> addComment(HttpServletRequest request) {
+		
+		String content = request.getParameter("content");
+		int blogNo = Integer.parseInt(request.getParameter("blogNo"));
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		
+		CommentDTO comment = CommentDTO.builder()
+				.content(content)
+				.blogNo(blogNo)
+				.user(UserDTO.builder().userNo(userNo).build())
+				.build();
+		
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("isAdd", commentMapper.insertComment(comment) == 1);	// insert 결과가 1과 같으면 성공, 0이면 실패
+		result.put("isAdd", commentMapper.insertComment(comment) == 1);
 		return result;
+		
 	}
 	
 	@Override
 	public Map<String, Object> getCommentList(HttpServletRequest request) {
-
+		
 		int blogNo = Integer.parseInt(request.getParameter("blogNo"));
 		int page = Integer.parseInt(request.getParameter("page"));
 		
-		// 전체 comment 개수
 		int commentCount = commentMapper.selectCommentCount(blogNo);
-		pageUtil.setPageUtil(page, commentCount);	// paging에 필요한 계산
+		pageUtil.setPageUtil(page, commentCount);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("blogNo", blogNo);
@@ -55,21 +67,35 @@ public class CommentServiceImpl implements CommentService {
 		result.put("pageUtil", pageUtil);
 		
 		return result;
+		
 	}
 	
 	@Override
 	public Map<String, Object> removeComment(int commentNo) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("isRemove", commentMapper.deleteComment(commentNo) == 1);	// state:1 정상
+		result.put("isRemove", commentMapper.deleteComment(commentNo) == 1);
 		return result;
 	}
 	
 	@Override
-	public Map<String, Object> addReply(CommentDTO reply) {
+	public Map<String, Object> addReply(HttpServletRequest request) {
+		
+		String content = request.getParameter("content");
+		int blogNo = Integer.parseInt(request.getParameter("blogNo"));
+		int groupNo = Integer.parseInt(request.getParameter("groupNo"));		
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		
+		CommentDTO reply = CommentDTO.builder()
+				.content(content)
+				.blogNo(blogNo)
+				.groupNo(groupNo)
+				.user(UserDTO.builder().userNo(userNo).build())
+				.build();
+		
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("isAdd", commentMapper.insertReply(reply) == 1);	// insert 결과가 1과 같으면 성공, 0이면 실패
+		result.put("isAdd", commentMapper.insertReply(reply) == 1);
 		return result;
+		
 	}
-	
 	
 }

@@ -26,7 +26,7 @@ public class UserDTO {
 	private String jibunAddress;
 	private String detailAddress;
 	private String extraAddress;
-	private int agreeCode;	// 약관동의, null값 처리가 용이하기 때문에 SQL과 연동할 때 사용
+	private int agreeCode;
 	private String snsType;
 	private Date joinDate;
 	private Date pwModifyDate;

@@ -20,10 +20,10 @@ public class SleepUserCheckingInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-
+		
 		// 로그인하려고 사용자가 입력한 아이디
 		String id = request.getParameter("id");
-	
+		
 		// 해당 아이디가 휴면테이블에 있는지 확인
 		SleepUserDTO sleepUser = userService.getSleepUserById(id);
 		
@@ -40,6 +40,7 @@ public class SleepUserCheckingInterceptor implements HandlerInterceptor {
 		else {
 			return true;
 		}
+		
 	}
 	
 }

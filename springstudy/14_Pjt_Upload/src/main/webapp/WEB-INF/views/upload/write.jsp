@@ -10,46 +10,54 @@
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 <script>
 	
-	$(function() {
+	$(function(){
 		fn_fileCheck();
 	});
 	
-	function fn_fileCheck() {
-		$('#files').change(function() {
+	function fn_fileCheck(){
+		
+		$('#files').change(function(){
 			
 			// 첨부 가능한 파일의 최대 크기
 			let maxSize = 1024 * 1024 * 10;  // 10MB
 			
 			// 첨부된 파일 목록
-			let files = this.files;	// this = $('#files')
+			let files = this.files;
 			
 			// 첨부된 파일 순회
-			for(let i = 0; i < files.length; i++) {
+			$('#file_list').empty();
+			$.each(files, function(i, file){
 				
 				// 크기 체크
-				if(files[i].size > maxSize) {
+				if(file.size > maxSize){
 					alert('10MB 이하의 파일만 첨부할 수 있습니다.');
-					$(this).val('');	// 첨부된 파일을 모두 없애줌
+					$(this).val('');  // 첨부된 파일을 모두 없애줌
 					return;
 				}
 				
-			}
-			
+				// 첨부 목록 표시
+				$('#file_list').append('<div>' + file.name + '</div>');
+				
+			});
 			
 		});
+		
 	}
-	
 	
 </script>
 </head>
 <body>
-	
+
 	<div>
-
+	
 		<h1>작성화면</h1>
-
-		<form action="${contextPath}/upload/add" method="post" enctype="multipart/form-data">	<!-- 첨부할 때 method랑 enctype 꼭 써줘야 함 -->
-			
+		
+		<form action="${contextPath}/upload/add" method="post" enctype="multipart/form-data">
+		
+			<div>
+				<button>작성완료</button>
+				<input type="button" value="목록" onclick="location.href='${contextPath}/upload/list'">
+			</div>
 			<div>
 				<label for="title">제목</label>
 				<input type="text" id="title" name="title" required="required">
@@ -60,18 +68,13 @@
 			</div>
 			<div>
 				<label for="files">첨부</label>
-				<input type="file" id="files" name="files" multiple="multiple">	<!-- multiple을 넣어줘야 다중첨부 가능 -->
-			</div>
-			<div>
-				<button>작성완료</button>
-				<input type="button" value="목록" onclick="location.href='${contextPath}/upload/list'">
+				<input type="file" id="files" name="files" multiple="multiple">
+				<div id="file_list"></div>
 			</div>
 		
 		</form>
-
-
+	
 	</div>
-
 	
 </body>
 </html>

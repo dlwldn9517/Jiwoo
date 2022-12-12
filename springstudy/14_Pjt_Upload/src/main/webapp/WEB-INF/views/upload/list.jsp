@@ -10,12 +10,12 @@
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 </head>
 <body>
-	
+
 	<div>
-	
+
 		<div>
 			<a href="${contextPath}/upload/write">작성</a>
-		</div>	
+		</div>
 		
 		<hr>
 		
@@ -36,13 +36,12 @@
 							<td><a href="${contextPath}/upload/detail?uploadNo=${upload.uploadNo}">${upload.title}</a></td>
 							<td>${upload.createDate}</td>
 							<td>${upload.attachCnt}</td>
-							<!-- attachCnt는 DB 테이블에 없다. -->
-							<!-- DTO 필드명과 테이블 명이 반드시 똑같을 필요는 없다. -->
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+		
 	</div>
 	
 </body>

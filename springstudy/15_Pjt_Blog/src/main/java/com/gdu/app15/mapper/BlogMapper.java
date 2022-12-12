@@ -10,7 +10,6 @@ import com.gdu.app15.domain.SummernoteImageDTO;
 
 @Mapper
 public interface BlogMapper {
-
 	public int selectBlogListCount();
 	public List<BlogDTO> selectBlogListByMap(Map<String, Object> map);
 	public int insertSummernoteImage(SummernoteImageDTO summernote);
@@ -22,5 +21,4 @@ public interface BlogMapper {
 	public List<SummernoteImageDTO> selectSummernoteImageListInBlog(int blogNo);
 	public List<SummernoteImageDTO> selectAllSummernoteImageList();
 	public int deleteSummernoteImage(String filesystem);
-	
 }

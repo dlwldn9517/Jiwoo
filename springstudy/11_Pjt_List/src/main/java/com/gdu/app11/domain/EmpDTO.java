@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class EmpDTO {
-	
 	private int employeeId;
 	private String firstName;
 	private String lastName;
@@ -22,5 +21,4 @@ public class EmpDTO {
 	private double salary;
 	private int managerId;
 	private DeptDTO deptDTO;
-	
 }

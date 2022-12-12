@@ -1,28 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />   
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
+<style>
+	/* 페이징 */
+	#paging  {
+		font-size: 12px;
+		color: gray;
+	}
+	#paging span, #paging strong {
+		margin: 0 3px;
+	}
+	.lnk_enable {
+		cursor: pointer;
+	}
+	.lnk_enable:hover {
+		color: limegreen;
+	}
+</style>
 <script>
 	
 	$(function(){
+		fn_checkAll();
+		fn_checkOne();
 		fn_add();
 		fn_init();
 		fn_list();
+		fn_changePage();
 		fn_detail();
 		fn_modify();
 		fn_remove();
 	});
 	
+	function fn_checkAll(){
+		$('#check_all').click(function(){
+			$('.check_one').prop('checked', $('#check_all').prop('checked'));
+		});
+	}
+	
+	function fn_checkOne(){
+		$(document).on('click', '.check_one', function(){
+			let checkCount = 0;
+			for(let i = 0; i < $('.check_one').length; i++){
+				checkCount += $($('.check_one')[i]).prop('checked');				
+			}
+			$('#check_all').prop('checked', checkCount == $('.check_one').length);
+		});
+	}
+	
 	function fn_add(){
 		$('#btn_add').click(function(){
 			// 추가할 회원 정보를 JSON으로 만든다.
-			// {} : 객체
 			let member = JSON.stringify({
 				'id': $('#id').val(),
 				'name': $('#name').val(),
@@ -34,12 +68,12 @@
 				/* 요청 */
 				type: 'post',
 				url: '${contextPath}/members',
-				data: member,  // 파라미터 이름 없음(본문에 member를 포함시켜서 전송) | 위쪽에 있는 let member의 member이다.
+				data: member,  // 파라미터 이름 없음(본문에 member를 포함시켜서 전송)
 				contentType: 'application/json',  // 요청 데이터의 MIME-TYPE
 				/* 응답 */
 				dataType: 'json',
 				success: function(resData){
-					if(resData.insetResult > 0) {
+					if(resData.insertResult > 0) {
 						alert('회원이 등록되었습니다.');
 						fn_list();
 						fn_init();
@@ -57,7 +91,7 @@
 	function fn_init(){
 		$('#id').val('').prop('readonly', false);
 		$('#name').val('');
-		$(':radio[name=gender]').prop('checked', false);	// 라디오의 프로퍼티에서 선택된 것을 false(해제)
+		$(':radio[name=gender]').prop('checked', false);
 		$('#address').val('');
 	}
 	
@@ -70,6 +104,7 @@
 			url: '${contextPath}/members/page/' + page,
 			dataType: 'json',
 			success: function(resData){
+				// 회원목록
 				$('#member_list').empty();
 				$.each(resData.memberList, function(i, member){
 					var tr = '<tr>';
@@ -82,7 +117,37 @@
 					tr += '</tr>';
 					$('#member_list').append(tr);
 				});
+				// 페이징
+				$('#paging').empty();
+				var naverPageUtil = resData.naverPageUtil;
+				var paging = '<div>';
+				// 이전 페이지
+				if(page != 1) {
+					paging += '<span class="lnk_enable" data-page="' + (page - 1) + '">&lt;이전</span>';
+				}
+				// 페이지번호
+				for(let p = naverPageUtil.beginPage; p <= naverPageUtil.endPage; p++) {
+					if(p == page){
+						paging += '<strong>' + p + '</strong>';
+					} else {
+						paging += '<span class="lnk_enable" data-page="'+ p +'">' + p + '</span>';
+					}
+				}
+				// 다음 페이지
+				if(page != naverPageUtil.totalPage){
+					paging += '<span class="lnk_enable" data-page="'+ (page + 1) +'">다음&gt;</span>';
+				}
+				paging += '</div>';
+				// 페이징 표시
+				$('#paging').append(paging);
 			}
+		});
+	}
+	
+	function fn_changePage(){
+		$(document).on('click', '.lnk_enable', function(){
+			page = $(this).data('page');
+			fn_list();
 		});
 	}
 	
@@ -110,29 +175,29 @@
 	
 	function fn_modify(){
 		$('#btn_modify').click(function(){
-			// 수정할 회원정보를 JSON 만들기
+			// 수정할 회원정보를 JSON으로 만들기
 			let member = JSON.stringify({
 				memberNo: $('#memberNo').val(),
 				name: $('#name').val(),
 				gender: $(':radio[name=gender]:checked').val(),
-				address: $('#address').val()	// select는 input처럼
+				address: $('#address').val()
 			});
 			// 수정
 			$.ajax({
 				type: 'put',
-				url:'${contextPath}/members',
+				url: '${contextPath}/members',
 				data: member,
 				contentType: 'application/json',
 				dataType: 'json',
 				success: function(resData){
-					if(resData.updateResult > 0) {
+					if(resData.updateResult > 0){
 						alert('회원 정보가 수정되었습니다.');
 						fn_list();
 					} else {
 						alert('회원 정보가 수정되지 않았습니다.');
 					}
 				},
-				error: function(jqXHR) {
+				error: function(jqXHR){
 					alert('에러코드(' + jqXHR.status + ') ' + jqXHR.responseText);
 				}
 			});
@@ -140,7 +205,7 @@
 	}
 	
 	function fn_remove(){
-		$('#btn_remove').click(function(){	// 1번3번 클릭하면 어레이리스트에 담아준 후에 삭제
+		$('#btn_remove').click(function(){
 			if(confirm('선택한 회원을 모두 삭제할까요?')){
 				// 삭제할 회원번호
 				let memberNoList = '';
@@ -205,7 +270,7 @@
 			</label>
 		</div>
 		<div>
-			<input type="button" value="초기화" onclick="fn_init()">	<!-- 클릭하면 fn_init() 함수를 실행하자 -->
+			<input type="button" value="초기화" onclick="fn_init()">
 			<input type="button" value="등록하기" id="btn_add">
 			<input type="button" value="수정하기" id="btn_modify">
 		</div>
