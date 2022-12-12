@@ -15,17 +15,17 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO dao;
 
 	@Override
-	public List<BoardDTO> findAllBoards() {
-		return dao.selectAllBoards();
+	public List<BoardDTO> getBoardList() {
+		return dao.selectBoardList();
 	}
 
 	@Override
-	public BoardDTO findBoardByNo(int boardNo) {
+	public BoardDTO getBoardByNo(int boardNo) {
 		return dao.selectBoardByNo(boardNo);
 	}
 
 	@Override
-	public int saveBoard(BoardDTO board) {
+	public int addBoard(BoardDTO board) {
 		return dao.insertBoard(board);
 	}
 

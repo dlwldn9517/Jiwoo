@@ -8,20 +8,19 @@ import org.springframework.stereotype.Repository;
 
 import com.gdu.app09.domain.BoardDTO;
 
-@Repository		// 컴포넌트로 등록
+@Repository  // 컴포넌트로 등록
 public class BoardDAO {
 
-	// SqlSessionTemplate
-	// Mybatis에서 지원하는 mapper 처리 클래스
+	// SqlSessionTemplate : Mybatis에서 지원하는 mapper 처리 클래스
 	
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public List<BoardDTO> selectAllBoards() {
-		return sqlSessionTemplate.selectList("mybatis.mapper.board.selectAllBoards");
+	public List<BoardDTO> selectBoardList() {
+		return sqlSessionTemplate.selectList("mybatis.mapper.board.selectBoardList");  // mapper의 id를 직접 호출해 줘야 함(귀찮음)
 	}
 	
-	public BoardDTO selectBoardByNo(int boardNo) {	
+	public BoardDTO selectBoardByNo(int boardNo) { 
 		return sqlSessionTemplate.selectOne("mybatis.mapper.board.selectBoardByNo", boardNo);
 	}
 	
