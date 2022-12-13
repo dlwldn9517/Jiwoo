@@ -10,5 +10,6 @@ import com.gdu.app11.domain.EmpDTO;
 @Mapper
 public interface EmpListMapper {
 	public int selectAllEmployeesCount();
-	public List<EmpDTO> selectEmployeesByMap(Map<String, Object> map);
+	public List<EmpDTO> selectEmployeesUsingScroll(Map<String, Object> map);
+	public List<EmpDTO> selectEmployeesUsingPaging(Map<String, Object> map);
 }

@@ -20,7 +20,7 @@ public class EmpSearchController {
 	
 	@GetMapping("/emp/search/form")
 	public String searchForm() {
-		return "employee/search";
+		return "employee/list_search";
 	}
 	
 	@ResponseBody

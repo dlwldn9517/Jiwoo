@@ -26,7 +26,38 @@ public class EmpListServiceImpl implements EmpListService {
 	private PageUtil pageUtil;
 	
 	@Override
-	public void getAllEmployees(HttpServletRequest request, Model model) {
+	public Map<String, Object> getEmployeesUsingScroll(HttpServletRequest request, Model model) {
+		
+		// page 파라미터가 전달되지 않는 경우 page = 1로 처리한다.
+		Optional<String> opt = Optional.ofNullable(request.getParameter("page"));
+		int page = Integer.parseInt(opt.orElse("1"));
+		
+		// 전체 레코드(직원) 개수 구하기
+		int totalRecord = empListMapper.selectAllEmployeesCount();
+		
+		// PageUtil 계산하기
+		int recordPerPage = 9;  // 스크롤 한 번에 9개씩 가져가기
+		pageUtil.setPageUtil(page, recordPerPage, totalRecord);
+		
+		// Map 만들기(field, order, begin, end)
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("begin", pageUtil.getBegin());
+		map.put("end", pageUtil.getEnd());
+		
+		// begin~end 목록 가져오기
+		List<EmpDTO> employees = empListMapper.selectEmployeesUsingScroll(map);
+		
+		// 응답할 데이터
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("totalPage", pageUtil.getTotalPage());
+		resultMap.put("employees", employees);
+		
+		return resultMap;
+		
+	}
+	
+	@Override
+	public void getEmployeesUsingPaging(HttpServletRequest request, Model model) {
 		
 		// title 파라미터가 전달되지 않는 경우 EMPLOYEE_ID로 처리한다.
 		Optional<String> opt1 = Optional.ofNullable(request.getParameter("title"));
@@ -59,7 +90,7 @@ public class EmpListServiceImpl implements EmpListService {
 		map.put("end", pageUtil.getEnd());
 		
 		// begin~end 목록 가져오기
-		List<EmpDTO> employees = empListMapper.selectEmployeesByMap(map);
+		List<EmpDTO> employees = empListMapper.selectEmployeesUsingPaging(map);
 		
 		// 뷰로 보낼 데이터
 		switch(order) {
@@ -73,7 +104,7 @@ public class EmpListServiceImpl implements EmpListService {
 		model.addAttribute("page", page);
 		model.addAttribute("employees", employees);
 		model.addAttribute("beginNo", totalRecord - (page - 1) * pageUtil.getRecordPerPage());
-		model.addAttribute("paging", pageUtil.getPaging(request.getContextPath() + "/emp/list?title=" + title + "&order=" + order));
+		model.addAttribute("paging", pageUtil.getPaging(request.getContextPath() + "/emp/list/paging?title=" + title + "&order=" + order));
 
 	}
 	

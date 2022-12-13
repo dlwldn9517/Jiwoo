@@ -128,7 +128,8 @@
 <body>
 
 	<div>	
-		<input type="button" value="전체사원조회" onclick="location.href='${contextPath}/emp/list'">
+		<input type="button" value="사원조회_스크롤" onclick="location.href='${contextPath}/emp/list/scroll/page'">
+		<input type="button" value="사원조회_페이징" onclick="location.href='${contextPath}/emp/list/paging'">
 	</div>
 	
 	<hr>

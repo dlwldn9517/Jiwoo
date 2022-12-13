@@ -58,8 +58,13 @@
 			<hr>
 			
 			<div>
-				<input type="button" value="취소" onclick="history.back();">
+				<input type="button" value="취소" onclick="fn_abc()">
 				<button>다음</button>
+				<script>
+					function fn_abc(){
+						location.href='${contextPath}';
+					}
+				</script>
 			</div>
 		
 		</form>

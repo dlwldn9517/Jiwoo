@@ -32,7 +32,15 @@
 		  FROM EMPLOYEES
 	</select>
 	
-	<select id="selectEmployeesByMap" parameterType="Map" resultMap="EmpMap">  <!-- resultType이 아니라 resultMap이다! -->
+	<select id="selectEmployeesUsingScroll" parameterType="Map" resultMap="EmpMap">  <!-- resultType이 아니라 resultMap이다! -->
+		SELECT A.*
+		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY E.EMPLOYEE_ID DESC) AS RN, E.*, D.DEPARTMENT_NAME, D.LOCATION_ID
+		          FROM DEPARTMENTS D RIGHT OUTER JOIN EMPLOYEES E
+		            ON D.DEPARTMENT_ID = E.DEPARTMENT_ID) A
+		 WHERE A.RN BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<select id="selectEmployeesUsingPaging" parameterType="Map" resultMap="EmpMap">  <!-- resultType이 아니라 resultMap이다! -->
 		
 		<!-- 부서번호가 없는 사원이 있어서 외부 조인으로 처리 -->
 		
